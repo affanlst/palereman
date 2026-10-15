@@ -3,11 +3,14 @@ export type SocialVideo = {
   platform: "Instagram" | "TikTok";
   title: string;
   url: string;
-  cover: string;
+  cover?: string;
 };
 
-// Add only owner-approved post URLs and locally licensed cover images.
-export const socialVideos: SocialVideo[] = [];
+export const socialVideos: SocialVideo[] = [
+  { id: "tiktok-01", platform: "TikTok", title: "Video pilihan 01", url: "https://vt.tiktok.com/ZSg8Rnhj3/" },
+  { id: "tiktok-02", platform: "TikTok", title: "Video pilihan 02", url: "https://vt.tiktok.com/ZSg88xVLX/" },
+  { id: "instagram-01", platform: "Instagram", title: "Reel Palereman", url: "https://www.instagram.com/reel/DeVtcAhTdTY/" },
+];
 
 export function embedUrl(video: SocialVideo) {
   if (video.platform === "Instagram") {

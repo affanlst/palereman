@@ -63,7 +63,7 @@ Jangan menyalin klaim dekoratif dari gambar generatif sebagai fakta usaha. Parki
 
 - Logo gunungan dan foto Nasi Bakar berasal dari menu pengguna dan sudah ada di repo.
 - Foto venue pernah dikirim sebagai gambar percakapan, tetapi file asli belum tersedia di checkout. Jangan memakai foto buatan seolah foto venue. Hero dan suasana memakai placeholder berlabel sampai file tersedia.
-- Belum ada URL Reel/TikTok pilihan atau cover berlisensi. Tiga slot menjadi placeholder noninteraktif dengan status jelas, disertai tautan Instagram yang berfungsi. Jangan membuat tombol putar palsu.
+- Pembaruan setelah implementasi desain: pengguna memberikan TikTok `https://vt.tiktok.com/ZSg8Rnhj3/`, TikTok `https://vt.tiktok.com/ZSg88xVLX/` dan Instagram `https://www.instagram.com/reel/DeVtcAhTdTY/`. Ketiganya dipasang sebagai kartu yang dapat dimuat atas permintaan. Cover asli belum diberikan, sehingga kartu memakai label platform tanpa thumbnail buatan. Short link TikTok diselesaikan oleh server melalui redirect HTTPS yang dibatasi ke domain TikTok; jika gagal, tampilkan retry dan tautan sumber.
 - Ketika data video ditambahkan: player resmi dimuat setelah klik, satu aktif pada satu waktu, tanpa autoplay bersuara, menyediakan loading/error dan tautan sumber. Jangan scraping profil.
 - Peta dimuat secara lazy; iframe boleh diblokir jaringan pihak ketiga. Tautan Maps tetap terlihat dan dapat digunakan.
 

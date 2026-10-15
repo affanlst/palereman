@@ -5,4 +5,4 @@
 - Pada desktop mural menjadi satu komposisi sepanjang dokumen. Pada mobile, bagian atas, tengah dan bawah komposisi yang sama ditempatkan pada satu lapisan halaman; garis penghubung menyesuaikan panjang isi agar tokoh tidak diregangkan. Mask fade hanya menyamarkan pertemuan potongan responsif, bukan gradient dekoratif. Tidak ada reset latar pada batas section atau tile pola berulang.
 - `public/images/nasi-bakar-palereman.webp`: versi teroptimasi dari foto hidangan asli dalam menu yang disediakan pengguna. Sumber PNG dan logo gunungan asli tetap tersedia di repo.
 - Newsreader dan Source Sans 3 disajikan sebagai WOFF2 variable melalui `next/font/local`. Masing-masing menyertakan lisensi SIL OFL pada `public/fonts`.
-- Gambar referensi berwatermark tidak dimasukkan ke website. Foto venue dan URL video asli belum tersedia sebagai file/konfigurasi; placeholder diberi label yang jelas.
+- Gambar referensi berwatermark tidak dimasukkan ke website. Foto venue belum tersedia sebagai file proyek. Tiga tautan video pilihan telah diberikan pengguna dan dipasang; kartu memakai label platform karena cover asli belum tersedia.

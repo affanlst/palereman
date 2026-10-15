@@ -1,5 +1,7 @@
 # Pemeriksaan redesign Palereman
 
+> Catatan baseline sebelum tiga URL video diberikan. Integrasi terbaru dan batas pengujiannya dicatat pada [pemeriksaan video](video-integration-verification.md). Screenshot utama kini diperbarui untuk menampilkan ketiga kartu video terkonfigurasi.
+
 15 Oktober 2026. Acuan: [PRD 2.0](PRD-Palereman-v2-approved.md) dan [mockup yang disetujui](design/approved-desktop.webp). Pemeriksaan dilakukan pada website Next.js hasil implementasi, bukan pada gambar mockup. Antislop mode during, sesuai pilihan pengguna dalam percakapan.
 
 ## Build dan runtime
