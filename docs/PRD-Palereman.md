@@ -1,172 +1,177 @@
-# PRD & Arahan Desain Palereman
-Versi 0.1 | Brainstorm | 15 Oktober 2026
+# PRD Revisi Website Palereman
+Versi 1.0 | Spesifikasi revisi implementasi existing | 15 Oktober 2026
 
-## Status dan dasar keputusan
-Dokumen ini adalah usulan produk dan desain, bukan website yang sudah dibangun. Arah yang diberikan pemilik brief: premium, nuansa batik Jawa dan wayang, mengikuti warna PDF, berbasis Next.js dan dapat di-host di server sendiri.
+## 1. Tujuan revisi
+Ubah website yang sudah ada menjadi landing page single page premium untuk Palereman Coffee and View. Semua informasi utama berada pada satu halaman dengan beberapa section. Section View Menu membuka menu di Google Drive.
 
-Sumber utama: Menu Palereman.pdf, 12 halaman, diperiksa secara visual dan teks. Identitas pada sampul: Palereman Coffee and View, gunungan emas, latar putih, tulisan hitam pada isi. Instagram acuan yang diberikan pengguna: https://www.instagram.com/palereman.png/ . Akses langsung Instagram belum berhasil; foto profil dan postingannya belum terverifikasi. Informasi dari akun lama tidak digunakan sebagai identitas resmi.
+Dokumen ini menggantikan PRD brainstorm 0.1 yang sebelumnya ada pada path ini. Gunakan source existing sebagai dasar revisi. Jangan membangun ulang proyek dari nol atau mengembalikan katalog makanan lengkap.
 
-Logo gunungan dalam PDF menjadi acuan utama. Bentuk, tulisan, dan proporsinya dipertahankan. Jangan menggambar ulang logo atau mengubah warnanya tanpa persetujuan. Gunakan file master bila tersedia; ekstraksi aset asli dari PDF menjadi pilihan berikutnya.
+Permintaan pengguna yang menjadi acuan:
+- Single page dengan section, bukan halaman menu/suasana/kunjungi terpisah.
+- View Menu langsung menuju link Google Drive.
+- PDF menu menjadi referensi desain; seluruh buku tidak dimasukkan ke website atau repo.
+- Nuansa premium, batik Jawa dan wayang, dengan warna dari PDF serta logo asli.
+- Ada loading animation in/out, gerak gunungan, dan video Instagram/TikTok resmi.
+- Tetap Next.js dan bisa dijalankan di server sendiri.
 
-## 1. Tujuan produk
-Membantu calon pengunjung memahami suasana Palereman, melihat menu dan harga, menemukan lokasi, serta menghubungi kafe. Kesan premium dibangun melalui foto, komposisi, keterbacaan dan ketelitian, dengan harga menu asli tetap terlihat jelas.
+## 2. Kondisi source saat diperiksa
+Repository: https://github.com/affanlst/palereman
+Branch: main. Tree yang diperiksa: e9bcec4ccf58d4bc1ad2c7ea32ddf8f0ad03f759.
+Penilaian berikut berasal dari pembacaan source dan struktur repository. Tidak ada klaim bahwa website sudah dijalankan, screenshot terbaru telah diperiksa, atau hasil visual sudah lolos pengujian.
 
-Pengunjung utama yang diasumsikan: warga Ponorogo yang merencanakan kunjungan bersama teman atau keluarga, serta orang yang baru mengenal Palereman melalui Instagram atau pencarian. Segmen ini masih hipotesis, bukan data pengunjung.
-
-Ukuran keberhasilan setelah peluncuran: klik petunjuk arah, klik WhatsApp, kunjungan halaman menu, dan penggunaan pencarian menu. Klik WhatsApp bukan bukti reservasi berhasil. Target angka ditetapkan setelah ada baseline.
-
-## 2. Konsep pilihan: Emas, Gunungan, dan Meja Palereman
-Suasana hangat dan tenang, dengan identitas Jawa dari logo asli dan buku menu. Pengalaman membuka situs menyerupai membuka buku menu yang ditata lebih lapang, diselingi foto tempat dan hidangan.
-
-Design Read:
-- ENERGY 2/5: tenang; satu bidang foto besar memberikan daya tarik utama.
-- RHYTHM 3/5: komposisi berganti antara foto lebar, teks singkat, daftar menu rapat, dan galeri.
-- MOTION 1/5: transisi kontrol seperlunya, tanpa animasi dekoratif berulang.
-- Motif identitas: gunungan asli dan garis emas yang membingkai bagian tertentu.
-- Titik perhatian: foto tempat pada pembuka; hidangan pilihan pada bagian menu.
-- Aksen: emas pada logo dan aksi utama, dengan latar mayoritas putih.
-
-## 3. Palet warna
-Warna emas di bawah berasal dari piksel dominan render sampul. Ini sampel raster, bukan klaim kode master merek.
-
-| Token | HEX | Asal dan penggunaan |
+| Area | Kondisi teramati | Revisi yang diperlukan |
 | --- | --- | --- |
-| Paper | #FFFFFF | Latar utama, sesuai PDF |
-| Ink | #25231F | Usulan warna teks mendekati hitam PDF |
-| Brand Gold | #F3CB51 | Sampel emas dominan logo; logo dan bidang tombol |
-| Soft Gold | #EFD478 | Sampel emas sampul; ornamen dan garis sekunder |
-| Readable Gold | #8A6B20 | Turunan usulan untuk tautan kecil di atas putih |
+| Framework | package.json: Next.js 16.4.1, React 19.3.1, TypeScript | Gunakan stack existing; tidak perlu migrasi framework |
+| Beranda | src/app/page.tsx berisi hero, intro, daftar tiga menu beserta harga, visit strip | Susun menjadi section landing page; ganti daftar harga menjadi View Menu |
+| Navigasi | Header/footer menuju /menu, /suasana, /kunjungi | Ubah menjadi anchor pada satu halaman |
+| Katalog | /menu memakai MenuBrowser dan data src/lib/menu.ts | Lepas katalog, pencarian dan filter dari pengalaman utama |
+| PDF | public/menu-palereman.pdf, sekitar 582 KB; halaman menu menawarkan unduhan | Hapus PDF dari working tree dan deployment saat revisi kode |
+| Suasana | Route /suasana dan hero memakai placeholder foto | Pindahkan galeri ke section beranda; isi dengan foto asli terverifikasi |
+| Kunjungi | Route /kunjungi memakai profile.address, hours, Maps, telepon dan WhatsApp | Pindahkan ke section #kunjungi, gunakan data existing |
+| Branding | Logo gunungan sudah ada di public/images/logo-palereman.png; CSS memakai putih-emas | Gunakan aset dan palet existing sebagai dasar |
+| Animasi | CSS yang dibaca hanya menunjukkan transisi tombol; tidak terlihat loader atau gerak gunungan | Tambahkan animasi spesifik sesuai bagian 6 |
+| Video sosial | Tidak ditemukan komponen/section video pada source yang diperiksa | Tambahkan section video resmi |
 
-Paper dan Ink mendominasi. Dua emas adalah variasi satu keluarga aksen, bukan warna bebas untuk setiap komponen. Jangan menambahkan hijau, burgundy, atau cokelat sebagai warna merek sebelum ada alasan dari aset resmi.
+README dan src/lib/profile.ts mencatat bahwa alamat berasal dari screenshot Maps pengguna, serta jam dan nomor telah dikonfirmasi pengguna. Pertahankan data tersebut saat memindahkan layout. Jangan menggantinya dengan tebakan hasil pencarian. README juga mencatat foto venue belum tersedia.
 
-Kontras terhitung: Ink/Paper 15,68:1; Readable Gold/Paper 4,99:1. Emas terang tidak dipakai untuk teks informasi kecil di atas putih. Logo dipertahankan sebagai aset merek. Tombol emas memakai tulisan Ink. Nilai semua pasangan final tetap diperiksa saat implementasi.
+Catatan ukuran: PDF referensi awal sekitar 58,6 MB, sedangkan salinan yang sudah ada di repo sekitar 582 KB. Masalah revisi ini adalah bentuk pengalaman menu dan penempatan file, bukan menyatakan salinan repo masih 58,6 MB.
 
-## 4. Batik dan wayang
-Gunungan pada logo sudah menjadi penghubung paling kuat dengan wayang. Utamakan aset ini sebelum menambah karakter lain.
+## 3. Bentuk akhir: satu halaman
+Route utama / berisi section berikut. Urutan ini menjadi acuan revisi; jarak dan komposisi ditentukan dari isi serta aset nyata.
 
-- Gunungan tampil utuh pada area identitas; ukurannya cukup agar detail terbaca.
-- Usulan batik: satu keluarga motif geometris seperti kawung, dibuat sebagai bidang tepi atau pita pemisah. Motif ini usulan desain, bukan motif yang telah ditemukan dalam PDF.
-- Pada satu layar, pilih gunungan atau batik sebagai ornamen dominan. Jangan menumpuk keduanya di belakang teks.
-- Ornamen emas muda boleh samar di ruang kosong, tetapi tidak menjadi watermark di belakang harga atau deskripsi.
-- Jika ingin wayang figuratif, tentukan tokoh dan sumber ilustrasinya terlebih dahulu. Tidak mengarang tokoh atau makna budaya.
-- Ornamen dekoratif disembunyikan dari pembaca layar; logo memiliki teks alternatif nama kafe.
-
-Premium muncul dari ruang, ketelitian garis, dan pengulangan motif yang terkendali. Hindari latar penuh ukiran, efek emas metalik berlebihan, bingkai di setiap foto, atau seluruh elemen berbentuk gunungan.
-
-## 5. Tipografi dan komponen
-Usulan awal: Cormorant Garamond Semibold untuk judul dan Source Sans 3 untuk isi. Serif menyambung bahasa visual judul buku menu; sans membantu nama, komposisi, serta harga terbaca. Font ini kandidat, bukan identifikasi font PDF. Uji glyph, lisensi, dan hasil layar kecil sebelum dikunci.
-
-Tulisan script asli dipakai dalam logo saja. Harga memakai angka sejajar. Isi minimum 16px; judul mobile sekitar 36–44px dan desktop 64–80px menyesuaikan panjang. Panjang paragraf dijaga sekitar 55–70 karakter per baris.
-
-Tombol berbentuk persegi dengan sudut halus 4px, tanpa bayangan besar. Foto persegi panjang tanpa bingkai dekoratif berulang. Fokus keyboard jelas. Area sentuh minimum 44px.
-
-Contoh nada bahasa yang diusulkan:
-- Judul: “Mampir, ngopi, menikmati waktu.”
-- Pengantar: “Kopi, unjukan, dan masakan Palereman.”
-- Aksi: “Lihat menu”, “Petunjuk arah”, “Hubungi Palereman”.
-Hindari klaim “terbaik”, “nomor satu”, atau istilah fine dining yang belum terbukti. Label kategori Jawa dari menu asli dipertahankan dan diberi padanan bila membantu.
-
-## 6. Struktur situs
-Navigasi usulan: Menu, Suasana, Kunjungi. Logo menuju beranda. Ini rancangan tujuan halaman; tautannya baru menjadi kontrol aktif saat tujuan tersedia.
-
-### Beranda /
-1. Header terang dengan logo asli yang terbaca.
-2. Pembuka: foto lokasi berukuran besar dan judul pada bidang putih di sampingnya. Sekitar 60% bidang foto, 40% teks pada desktop; teks dan foto bertumpuk pada mobile. Teks tidak menutupi detail foto.
-3. Logo/gunungan dan pengantar singkat Palereman. Cerita pendirian hanya ditambahkan jika pemilik memberikan datanya.
-4. Pilihan dari buku menu: tiga hidangan/minuman dengan komposisi bervariasi, bukan kartu seragam. Pilihan editorial awal: Kopi Rempah, Nasi Bakar Palereman, dan Es Keluarga Cemara. Jangan menyebutnya semua sebagai best seller.
-5. Foto suasana: satu foto tempat lebar disertai dua sudut pendukung, setelah lokasinya terverifikasi.
-6. Blok kunjungan: alamat, jam, petunjuk arah, dan kontak yang telah dikonfirmasi.
-7. Footer ringkas berisi identitas, Instagram, kontak, dan tautan menu.
-
-### Menu /menu
-Menu berbentuk HTML yang dapat dicari dan dibaca ponsel. PDF menjadi unduhan pelengkap, bukan satu-satunya cara melihat menu. PDF sumber berukuran sekitar 58,6 MB; buat versi web terkompresi sebelum menyediakan unduhan.
-
-Kategori yang dipetakan dari PDF:
-- Kopi Palereman.
-- Es Degan Jamtrok.
-- Unjukan; subkelompok “Unjukan Best Seller” mengikuti label PDF.
-- Makanan.
-- Mie.
-- Nyamikan/Camilan.
-- Bakaran.
-- Tambahan.
-
-Fungsi: pencarian nama, filter kategori, pilihan panas/dingin bila tersedia. Harga varian dipetakan manual berdasarkan posisi kolom PDF. Hasil ekstraksi teks saja tidak cukup untuk memasangkan semua harga.
-
-Daftar menu menampilkan nama, komposisi jika ada, harga, dan foto bila tersedia. Item tanpa foto tetap tampil rapi sebagai baris. Jangan menggandakan foto satu makanan untuk makanan lain.
-
-Contoh yang terbaca jelas:
-| Item | Harga pada PDF | Sumber |
+| Urutan | Section / ID | Isi dan aksi utama |
 | --- | --- | --- |
-| Kopi Rempah | Rp10.000, panas | Halaman 2 |
-| Degan Spesial | Rp23.000 | Halaman 3 |
-| Es Keluarga Cemara | Rp13.000 | Halaman 4 |
-| Wedang Rempah | Rp10.000 | Halaman 4 |
-| Nasi Bakar Palereman | Rp10.000 | Halaman 6 |
-| Tahu Campur Palereman | Rp17.000 | Halaman 6 |
-| Ayam Bakar | Rp20.000 | Halaman 8 |
-| Mix Platter | Rp15.000 | Halaman 11 |
+| 1 | Hero / #beranda | Foto utama, identitas, pengantar singkat; View Menu ke Drive |
+| 2 | Tentang / #tentang | Cerita singkat berbasis fakta dan logo gunungan asli |
+| 3 | Suasana / #suasana | Foto tempat yang dikurasi |
+| 4 | View Menu / #menu | Pengantar ringkas, satu foto hidangan bila perlu, tombol View Menu |
+| 5 | Video / #video | Video pilihan Instagram dan TikTok resmi |
+| 6 | Kunjungi / #kunjungi | Alamat, jam, Maps, telepon dan WhatsApp |
+| 7 | Footer | Identitas dan tautan resmi ringkas |
 
-Harga adalah isi PDF yang diberikan, bukan jaminan harga operasional saat peluncuran. Tidak menambahkan pajak, biaya layanan, atau label halal/vegetarian tanpa data pemilik.
+Navbar: Tentang, Suasana, Menu, Video, Kunjungi. Item Menu menggulir ke #menu. Tombol bertuliskan View Menu membuka Drive. Logo menuju #beranda. Section memiliki offset scroll agar heading tidak tertutup header; navigasi seluler menutup setelah memilih anchor.
 
-### Suasana /suasana
-Galeri foto tempat yang dikurasi, dengan keterangan area faktual. Tampilan foto besar dan urutan sederhana; lightbox mendukung tombol tutup, Escape, fokus keyboard, dan navigasi sentuh.
+Route lama /menu, /suasana, /kunjungi tidak lagi menjadi halaman konten terpisah. Tangani tautan lama dengan redirect ke /#menu, /#suasana, /#kunjungi, lalu verifikasi perilaku hash pada server produksi. Redirect bukan alasan untuk mempertahankan katalog lama.
 
-### Kunjungi /kunjungi
-Alamat terverifikasi, jam mingguan dan pengecualian, tautan Google Maps yang menunjuk tempat tepat, kontak resmi, dan informasi fasilitas yang dikonfirmasi. WhatsApp membuka percakapan untuk bertanya; jangan menyatakan meja otomatis dipesan.
+## 4. View Menu: pengganti katalog existing
+Bagian ini adalah perubahan prioritas tertinggi.
 
-## 7. Konten dan aset
-Prioritas sumber:
-1. Logo dan foto makanan yang sudah berada di PDF.
-2. File asli dari pengelola dan akun @palereman.png.
-3. Foto publik dari pencarian sebagai calon referensi; periksa tempat, tanggal, pemilik, dan izin pemakaian sebelum publikasi.
+- Ganti featured-list berisi harga di beranda dengan section visual View Menu yang ringkas.
+- Semua CTA menu, termasuk hero dan footer jika ada CTA, memakai satu konfigurasi menuDriveUrl.
+- Gunakan link biasa menuju URL Drive yang diberikan pengguna, target="_blank", rel="noopener noreferrer", dan keterangan aksesibel bahwa tujuan dibuka di tab baru.
+- Tidak ada PDF viewer, flipbook, embed seluruh buku, daftar lengkap makanan, tabel harga, pencarian nama, filter kategori/suhu, atau tombol download PDF lokal.
+- Lepas import menuItems/formatRupiah dari beranda ketika tidak lagi dipakai. Hapus komponen dan data katalog yang sudah tidak direferensikan.
+- Hapus public/menu-palereman.pdf dari versi kode berikutnya; file tidak ikut public assets, build atau deployment. Tidak perlu menulis ulang riwayat Git untuk revisi ini.
+- Gunakan logo dan aset foto terpilih yang sudah diekstrak; tidak perlu memasukkan PDF sumber kembali.
+- URL Drive belum diberikan pada percakapan ini. Jangan mengarang link. Saat pengembangan tandai konfigurasi belum lengkap; link valid yang dapat dibuka tanpa login menjadi syarat peluncuran.
+- Perubahan isi dokumen di Drive dengan URL tetap tidak membutuhkan deploy website. Perubahan URL cukup melalui menuDriveUrl.
 
-Logo dalam PDF sudah teridentifikasi sehingga tidak perlu menggantinya dengan hasil pencarian. Foto suasana hasil Google belum otomatis terhubung dengan akun yang benar.
+## 5. Revisi visual premium
+Design Read: ENERGY 2/5, RHYTHM 3/5, MOTION 3/5. Tenang dengan komposisi bervariasi dan animasi identitas yang jelas.
 
-Daftar kebutuhan: logo master, foto eksterior, area duduk, foto lebar suasana, enam foto menu pilihan, alamat dan titik Maps, WhatsApp resmi, jam terbaru, fasilitas, serta tanggal berlaku menu. Jangan mengarang sejarah usaha atau menggunakan foto stok seolah lokasi asli.
+### Warna dan tipografi
+Pertahankan putih #FFFFFF, teks #25231F, emas logo #F3CB51, dan emas muda #EFD478. Tautan kecil dapat memakai #8A6B20 agar terbaca pada putih. Nilai tersebut mengikuti referensi PDF dan token existing, bukan alasan untuk menambah warna lain.
 
-Ekstrak objek gambar asli dari PDF jika memungkinkan. Nilai resolusi tiap foto sebelum digunakan; foto kecil cocok sebagai thumbnail, bukan hero layar penuh. Semua aset publik disimpan lokal atau di penyimpanan milik proyek, tanpa hotlink Instagram.
+Judul serif dan isi sans tetap menjadi arah. Source sekarang memakai Georgia dan Arial/Helvetica. Evaluasi bentuk dan keterbacaan dalam revisi visual; kandidat Cormorant Garamond dan Source Sans 3 boleh dipilih bila hasilnya lebih sesuai, dengan font berlisensi dan disajikan lokal. Pergantian font tidak menjadi pengganti perbaikan komposisi.
 
-## 8. Persyaratan fungsional MVP
-- Beranda, menu digital, galeri, dan halaman kunjungan.
-- Pencarian dan kategori yang dapat dipakai bersama; tombol hapus filter dan keadaan tidak ada hasil.
-- Status item tersedia/habis hanya jika ada cara pengelola memperbaruinya.
-- Jam tidak menampilkan “buka sekarang” sebelum jadwal, zona Asia/Jakarta, dan pengecualian tersedia.
-- Navigasi mobile, 404, gambar gagal dimuat, dan keadaan konten kosong.
-- Tidak ada pembayaran atau reservasi otomatis dalam MVP; kebutuhan ini memerlukan alur operasional tersendiri.
-- Admin CMS opsional fase berikutnya. Pemilihan tergantung siapa yang memperbarui menu dan seberapa sering.
+### Gunungan dan batik
+- Pertahankan bentuk, warna serta proporsi logo asli. Header memakai identitas yang tetap mudah dibaca.
+- Batik menjadi pita pemisah atau ornamen tepi; satu keluarga motif, misalnya kawung, sebagai usulan desain. Jangan mengklaim motif tersebut bagian dari logo asli.
+- Gunungan menjadi pusat gerak. Batik di sekitarnya tetap diam.
+- Gunakan satu motif dominan pada satu bidang, tanpa pola di belakang teks penting.
+- Jangan menambahkan tokoh wayang secara acak. Gunungan existing sudah menjadi unsur wayang utama.
 
-## 9. Arahan teknis
-Next.js App Router dan TypeScript; versi stabil yang didukung dipilih saat implementasi. Halaman informasi dirender server/prerender; JavaScript klien untuk pencarian, filter dan galeri saja.
+### Komposisi dan copy
+- Prioritaskan foto tempat nyata sebagai daya tarik hero dan section Suasana. Placeholder saat ini adalah kebutuhan konten yang belum terpenuhi, bukan visual final.
+- Susun bergantian antara foto lebar, pengantar singkat, View Menu ringkas, video portrait dan informasi kunjungan.
+- Hapus copy internal proses seperti “sudah kami cocokkan dengan dokumen menu”, “ditranskripsi dari PDF”, serta nomor halaman sumber dari tampilan pengunjung.
+- Gunakan CTA spesifik: View Menu, Petunjuk Arah, Hubungi Palereman.
+- Hindari kartu seragam untuk setiap bagian, watermark di belakang teks, bayangan besar, efek emas metalik berlebihan, dan animasi pada semua elemen. Keputusan visual harus punya fungsi identitas, hierarki atau keterbacaan.
 
-MVP memakai data terstruktur dalam repositori agar portabel. Model MenuItem: id, slug, name, categoryId, description?, variants[{label, priceIDR}], image?, availability?, sortOrder, sourcePage, verifiedAt?. Model profil usaha memisahkan alamat, kontak, jam mingguan, dan pengecualian tanggal.
+## 6. Loading in/out dan gerak gunungan
+### Loading
+Bidang putih dengan gunungan emas. Entry opacity/translateY 8–12px sekitar 250–350ms. Saat konten siap, bidang keluar melalui reveal ke atas sekitar 400–550ms, seperti layar panggung membuka.
 
-Deployment usulan: Docker/Node.js di VPS, Nginx sebagai reverse proxy, HTTPS, aset dan font lokal, backup konten dan aset. Next.js tidak memerlukan hosting Vercel. Build dilakukan di CI atau mesin build bila RAM VPS terbatas. Kapasitas server dipilih setelah jumlah aset, optimasi gambar, dan trafik diketahui.
+Tampilkan hanya saat diperlukan; ambang awal sekitar 150–200ms untuk menghindari kilatan. Tidak ada waktu tunggu minimum buatan atau progress persen palsu. Jangan menunggu seluruh foto/video di bawah layar. Intro penuh maksimal sekali per sesi tab; kegagalan penyimpanan sesi tidak boleh merusak situs.
 
-SEO: judul dan deskripsi spesifik halaman, sitemap, robots, canonical, dan data terstruktur CafeOrCoffeeShop hanya berisi fakta terverifikasi. Alamat dan kontak konsisten dengan profil usaha resmi. Tidak menanam rating dari agregator sebagai rating resmi.
+Konten siap tetap dapat diakses. Kesalahan gambar, JavaScript atau koneksi tidak boleh mengunci overlay. Status loading disampaikan sebagai teks aksesibel.
 
-Referensi teknis: https://nextjs.org/docs/app/guides/self-hosting
+### Gunungan
+- Titik tumpu bawah-tengah; rotasi sekitar -2 sampai +2 derajat, translateY maksimal 4–6px.
+- Kesan gerak berasal dari tangkai wayang. Tidak memantul atau berputar penuh.
+- Gunakan gunungan sebagai objek utuh; jangan memecah logo atau menggoyangkan tulisan merek. Bila perlu pisahkan aset gunungan dari lockup dengan mempertahankan bentuk asli.
+- Loader boleh berulang selama loading aktual. Gunungan dekoratif memainkan satu rangkaian 4–5 detik saat masuk viewport lalu berhenti. Bila kelak dibuat berulang terus, sediakan kontrol jeda.
+- Hentikan di luar viewport dan tab tidak aktif; satu gunungan bergerak pada satu waktu.
 
-## 10. Kriteria penerimaan sebelum peluncuran
-- Cocokkan setiap nama, harga, komposisi dan varian dengan PDF lalu konfirmasi ke pengelola.
-- Semua tautan Maps, Instagram, WhatsApp, dan unduhan menuju tujuan yang tepat.
-- Uji 360, 390, 768, 1024, dan 1440px; tidak ada overflow.
-- Bisa digunakan dengan keyboard, fokus terlihat, lightbox mengembalikan fokus ke pemicu.
-- Kontras AA; pola tidak menurunkan keterbacaan.
-- Reduced motion dihormati; tidak ada autoplay audio, scroll hijacking, atau kursor khusus.
-- LCP <=2,5 detik, INP <=200ms, CLS <=0,1 menjadi target lapangan, bukan hasil yang sudah dicapai. Lighthouse mobile >=90 menjadi target lab dengan profil tes tercatat.
-- Build produksi berhasil, seluruh kontrol dicoba, metadata dan data terstruktur divalidasi.
-- Tidak ada testimoni, fasilitas, statistik, atau label best seller yang dikarang.
+### Section dan komponen
+Reveal section fade/translateY maksimal 8px selama 220–320ms, satu kali. Jangan menyembunyikan kembali section ketika pengguna membaca. Menu mobile masuk/keluar sekitar 180–240ms; lightbox sekitar 160–220ms. Navigasi anchor dan link Drive tidak ditunda demi animasi.
 
-## 11. Pemeriksaan Anti Slop untuk PRD ini
-Cakupan: dokumen konsep. Website, aset final, build, dan tes browser belum dikerjakan.
-- PASS, kejujuran sumber: akun yang dikoreksi pengguna dicatat; aset Instagram dan data kunjungan ditandai belum terverifikasi.
-- PASS, tujuan visual: emas berasal dari PDF, gunungan berasal dari logo, batik dibatasi ke bidang ornamen agar menu tetap terbaca.
-- PASS, arah dan ritme: ENERGY 2, RHYTHM 3, MOTION 1 dinyatakan dengan contoh komposisi.
-- PASS, konten: delapan contoh harga memiliki rujukan halaman; tidak ada testimoni atau angka pencapaian buatan.
-- PASS, warna untuk teks yang diusulkan: pasangan Ink/Paper dan Readable Gold/Paper dihitung 15,68:1 dan 4,99:1.
-- PASS, lingkup deliverable: tidak ada UI atau kontrol aktif yang diklaim sudah selesai; seluruh pemeriksaan browser, interaksi, dan responsif tercantum sebagai kriteria implementasi, belum diuji.
-- PASS, arah copy dan komponen: aksi spesifik, script dibatasi pada logo, motif tidak diletakkan di belakang harga, foto dan daftar menjadi pusat konten.
+Gunakan transform/opacity untuk gerak sederhana. prefers-reduced-motion mematikan goyangan, geser dan reveal besar. Versi tanpa JavaScript tetap menampilkan informasi dan link menu.
 
-## 12. Keputusan berikutnya
-Arah yang direkomendasikan: putih-emas mengikuti PDF, gunungan asli, batik sebagai aksen, foto tempat besar, dan menu digital yang mudah dibaca. Sebelum implementasi, pastikan alamat, jam, kontak, foto tempat, serta apakah pengelola perlu mengedit menu tanpa developer. Wireframe desktop/mobile menjadi langkah berikutnya setelah arah ini disepakati.
+## 7. Section video Instagram dan TikTok
+Judul usulan: Cerita dari Palereman. Tampilkan sekitar tiga video pilihan di halaman utama, dengan sampul portrait, judul pendek dan label platform. Mobile memakai urutan ringkas yang bisa digunakan dengan sentuhan maupun keyboard.
+
+- Instagram acuan pengguna: https://www.instagram.com/palereman.png/ .
+- Akun TikTok dan URL video spesifik belum terverifikasi. Lengkapi sebelum menampilkan klaim video resmi; jangan menebak akun.
+- Gunakan embed resmi yang dimuat ketika pengunjung menekan Putar Video. Sebelum itu tampilkan sampul lokal yang berhak dipakai, bukan semua script pemutar sekaligus.
+- Klik pertama memuat player; pemutaran mengikuti kontrol platform. Tidak ada autoplay bersuara.
+- Pertahankan atribusi dan kontrol resmi. Jangan memotong player untuk memaksanya cocok dengan frame desain.
+- Sediakan Tonton di Instagram/TikTok, status loading, serta fallback untuk video privat/dihapus, pembatasan, atau embed gagal.
+- Video dipilih manual melalui data konfigurasi; jangan menyebutnya feed terbaru otomatis.
+- Satu player aktif pada satu waktu. Loading player tidak memicu intro gunungan seluruh halaman.
+- Detail integrasi diverifikasi terhadap dokumentasi resmi platform saat implementasi. Tidak melakukan scraping atau meng-host ulang video sebagai pengganti embed.
+
+## 8. Peta pekerjaan implementasi
+Tabel ini adalah instruksi perubahan berikutnya, bukan daftar file yang sudah diubah pada pembaruan PRD.
+
+| File / area | Tindakan revisi |
+| --- | --- |
+| src/app/page.tsx | Susun semua section, ganti daftar harga, tambahkan galeri, View Menu, video dan detail kunjungan |
+| src/components/site-header.tsx | Anchor navigation, penutupan menu mobile dan offset/fokus yang benar |
+| src/components/site-footer.tsx | Anchor/tautan resmi, hapus disclaimer internal transkripsi menu |
+| src/app/menu/page.tsx | Ganti katalog dengan redirect ke /#menu |
+| src/app/suasana/page.tsx | Pindahkan isi ke section; route menjadi redirect |
+| src/app/kunjungi/page.tsx | Pindahkan detail kunjungan; route menjadi redirect |
+| src/components/menu-browser.tsx | Hapus setelah tidak dipakai |
+| src/lib/menu.ts | Hapus setelah seluruh ketergantungan katalog dilepas |
+| src/lib/profile.ts | Pertahankan data usaha; tambah konfigurasi terkait bila sesuai atau pisahkan site config |
+| public/menu-palereman.pdf | Hapus dari working tree revisi |
+| public/images | Pertahankan logo/foto pilihan; tambahkan media venue terverifikasi dan teroptimasi |
+| src/app/globals.css | Tata section, batik, responsif, animasi dan reduced motion; bersihkan style katalog tidak terpakai |
+| Komponen baru sesuai kebutuhan | Loader, gunungan, galeri dan social video; jangan ubah seluruh halaman menjadi client component |
+| README.md | Sesuaikan dokumentasi menjadi single page + Drive, bukan searchable menu/PDF download |
+
+## 9. Data yang dibutuhkan
+1. URL menu Google Drive yang dapat dibaca pengunjung tanpa login.
+2. Foto asli tempat untuk mengganti hero dan galeri placeholder.
+3. URL Reel Instagram pilihan, akun TikTok resmi dan URL video.
+4. Sampul video yang dapat digunakan; logo master bila ada versi lebih baik.
+
+Data alamat, jam dan kontak yang sudah ada dipertahankan berdasarkan catatan konfirmasi pada source. Fasilitas dan cerita usaha baru hanya ditambahkan dari sumber pemilik.
+
+## 10. Kriteria penerimaan revisi
+- Semua section utama berada pada /; navigasi desktop/mobile menuju anchor tepat.
+- View Menu di hero dan section membuka URL Drive yang sama. Uji tanpa login, perangkat seluler, keyboard dan tab baru.
+- Tidak ada katalog penuh, pencarian/filter menu, PDF viewer atau download PDF lokal.
+- Tidak ada PDF buku menu pada working tree, public assets atau deployment. Hapus import dan style katalog yang tidak lagi digunakan.
+- Route lama ditangani dan tidak menjadi dead link.
+- Loading entry/exit, gunungan dan section reveal bekerja saat koneksi cepat, lambat, gagal, reduced motion, tab latar dan JavaScript nonaktif.
+- Video resmi dapat dimuat; fallback dan link sumber tetap bekerja saat embed diblokir.
+- Uji 360, 390, 768, 1024 dan 1440px; tidak ada overflow, fokus terlihat, target sentuh minimal 44px, kontras AA, media tidak memicu layout shift.
+- Foto venue asli tersedia untuk rilis final; jangan menyatakan placeholder sebagai foto tempat.
+- Jalankan npm run lint, npm run typecheck, npm run build, lalu tes produksi dan seluruh kontrol.
+- Target kinerja: LCP <=2,5 detik, INP <=200ms, CLS <=0,1. Ini sasaran, bukan hasil yang sudah diukur.
+- Dapat dijalankan melalui build/start pada server sendiri dengan HTTPS reverse proxy dan proses terawasi.
+
+## 11. Urutan pelaksanaan
+P0: single page, View Menu ke Drive, lepas katalog/PDF lokal dan rapikan seluruh tautan.
+P1: perbaiki komposisi visual, isi foto tempat, loading/gunungan dan video sosial.
+P2: verifikasi aksesibilitas, browser, media, kinerja serta dokumentasi deployment.
+
+## 12. Pemeriksaan dokumen revisi
+PASS, dasar revisi: tabel kondisi existing merujuk file yang sudah dibaca dari repo, bukan asumsi proyek kosong.
+PASS, scope: perubahan single page dan Drive terpetakan ke file; tidak ada katalog atau PDF bundling sebagai kebutuhan baru.
+PASS, identitas: logo/palet existing dipertahankan; batik, komposisi dan gerak memiliki tujuan tertulis.
+PASS, motion: ENERGY 2 / RHYTHM 3 / MOTION 3 konsisten dengan loading, gunungan dan reveal yang dibatasi.
+PASS, kejujuran: URL Drive, foto venue dan video yang belum tersedia dinyatakan sebagai kebutuhan; tidak ada klaim hasil build/browser yang belum dijalankan.
+Belum diuji: implementasi kode, tampilan final, kontras seluruh komponen, player, tautan Drive, build dan responsif. Semua menjadi acceptance criteria revisi, bukan hasil review source ini.
