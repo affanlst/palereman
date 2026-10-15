@@ -1,5 +1,5 @@
 # PRD Revisi Website Palereman
-Versi 1.0 | Spesifikasi revisi implementasi existing | 15 Oktober 2026
+Versi 1.1 | Spesifikasi revisi implementasi existing | 15 Oktober 2026
 
 ## 1. Tujuan revisi
 Ubah website yang sudah ada menjadi landing page single page premium untuk Palereman Coffee and View. Semua informasi utama berada pada satu halaman dengan beberapa section. Section View Menu membuka menu di Google Drive.
@@ -68,6 +68,18 @@ Bagian ini adalah perubahan prioritas tertinggi.
 
 ## 5. Revisi visual premium
 Design Read: ENERGY 2/5, RHYTHM 3/5, MOTION 3/5. Tenang dengan komposisi bervariasi dan animasi identitas yang jelas.
+
+### Riset referensi desain wajib sebelum revisi visual
+Pelaksana wajib mencari dan melihat referensi aktual di Dribbble (https://dribbble.com/) dan Pinterest (https://www.pinterest.com/) sebelum mengerjakan revisi visual. Jangan hanya menyebut platform tanpa membuka karya/pin yang dipilih.
+
+- Cari beberapa arah yang relevan: premium cafe website, restaurant editorial landing page, Indonesian heritage branding, Javanese batik graphic design, wayang gunungan, serta hospitality website motion.
+- Kurasi 4–6 referensi total dengan minimal dua dari setiap platform. Pilih berdasarkan kecocokan dengan Palereman, bukan sekadar popularitas.
+- Catat dalam docs/design-references.md: URL karya/pin spesifik, judul atau kreator jika tersedia, tanggal akses, bagian yang diamati, alasan cocok, dan cara adaptasi untuk Palereman. Gunakan link sumber asli bila pin mengarah ke karya lain.
+- Bandingkan komposisi hero, hirarki tipografi, penempatan foto, ritme section, pemakaian ornamen, CTA menu, mobile layout dan motion jika referensi memang memperlihatkannya. Jangan mengklaim gambar statis membuktikan interaksi atau responsif.
+- Buat sintesis arah: referensi mana membantu layout, tipografi, batik/gunungan dan animasi. Pertahankan putih-emas PDF, logo asli, single page dan View Menu ke Drive sebagai batas brief.
+- Adaptasi prinsip desain dengan konten Palereman. Jangan menyalin satu tampilan utuh, mengganti merek saja, atau memakai foto/logo/aset karya orang lain sebagai aset website.
+- Jika platform membutuhkan login atau konten tidak dapat diakses, catat batas akses dan referensi yang benar-benar terlihat. Jangan mengarang tautan, isi karya atau hasil riset.
+- Riset menghasilkan dasar desain yang konkret, bukan alasan menambah fitur atau mengubah scope. Tidak perlu meminta persetujuan baru untuk pilihan rutin yang sudah sesuai brief.
 
 ### Warna dan tipografi
 Pertahankan putih #FFFFFF, teks #25231F, emas logo #F3CB51, dan emas muda #EFD478. Tautan kecil dapat memakai #8A6B20 agar terbaca pada putih. Nilai tersebut mengikuti referensi PDF dan token existing, bukan alasan untuk menambah warna lain.
@@ -139,6 +151,7 @@ Tabel ini adalah instruksi perubahan berikutnya, bukan daftar file yang sudah di
 | public/images | Pertahankan logo/foto pilihan; tambahkan media venue terverifikasi dan teroptimasi |
 | src/app/globals.css | Tata section, batik, responsif, animasi dan reduced motion; bersihkan style katalog tidak terpakai |
 | Komponen baru sesuai kebutuhan | Loader, gunungan, galeri dan social video; jangan ubah seluruh halaman menjadi client component |
+| docs/design-references.md | Tambahkan hasil kurasi Dribbble/Pinterest dan sintesis arah visual sebelum revisi UI |
 | README.md | Sesuaikan dokumentasi menjadi single page + Drive, bukan searchable menu/PDF download |
 
 ## 9. Data yang dibutuhkan
@@ -150,6 +163,7 @@ Tabel ini adalah instruksi perubahan berikutnya, bukan daftar file yang sudah di
 Data alamat, jam dan kontak yang sudah ada dipertahankan berdasarkan catatan konfirmasi pada source. Fasilitas dan cerita usaha baru hanya ditambahkan dari sumber pemilik.
 
 ## 10. Kriteria penerimaan revisi
+- Referensi Dribbble dan Pinterest sudah diperiksa serta dicatat di docs/design-references.md, lengkap dengan alasan adaptasi; tidak ada klaim riset yang belum dilakukan.
 - Semua section utama berada pada /; navigasi desktop/mobile menuju anchor tepat.
 - View Menu di hero dan section membuka URL Drive yang sama. Uji tanpa login, perangkat seluler, keyboard dan tab baru.
 - Tidak ada katalog penuh, pencarian/filter menu, PDF viewer atau download PDF lokal.
@@ -165,7 +179,7 @@ Data alamat, jam dan kontak yang sudah ada dipertahankan berdasarkan catatan kon
 
 ## 11. Urutan pelaksanaan
 P0: single page, View Menu ke Drive, lepas katalog/PDF lokal dan rapikan seluruh tautan.
-P1: perbaiki komposisi visual, isi foto tempat, loading/gunungan dan video sosial.
+P1: riset dan kurasi Dribbble/Pinterest, lalu perbaiki komposisi visual, isi foto tempat, loading/gunungan dan video sosial.
 P2: verifikasi aksesibilitas, browser, media, kinerja serta dokumentasi deployment.
 
 ## 12. Pemeriksaan dokumen revisi
