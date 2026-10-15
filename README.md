@@ -6,6 +6,8 @@ The gunungan artwork and one food photo were extracted from the supplied Palerem
 
 The address and Maps link came from the user's screenshot and link. The user confirmed the listed hours and phone/WhatsApp number. The Drive URL came from the user; direct anonymous access could not be checked from this environment because its outbound proxy denied the request.
 
+Current full-page previews: [desktop](docs/screenshots/palereman-desktop.png) and [mobile](docs/screenshots/palereman-mobile.png). They show the venue and video placeholders awaiting original media.
+
 ## Develop
 
 Node.js 20.9 or newer is required. Node.js 24 was used during development.
