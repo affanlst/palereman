@@ -2,11 +2,11 @@
 
 Next.js 16 single page site based on the [revised PRD](docs/PRD-Palereman.md). The home page contains Tentang, Suasana, Menu, Video, and Kunjungi sections. Menu buttons open the [public Google Drive menu](https://drive.google.com/file/d/1L7ihFNGiLOhXX5wK7XbqEQ8DGiBHlEjS/view) in a new tab. The URL is configured once in `src/lib/profile.ts`. Old `/menu`, `/suasana`, and `/kunjungi` routes redirect to their respective home page sections.
 
-The gunungan artwork and one food photo were extracted from the supplied Palereman menu. Venue photos and selected official video URLs have not been supplied as files/links, so those sections display clearly labeled placeholders instead of invented media. Design research access limitations are recorded in [design-references.md](docs/design-references.md).
+The gunungan artwork and one food photo were extracted from the supplied Palereman menu. A newly generated ornamental wayang illustration decorates the hero; it is not an official Palereman character or historical depiction. Venue photos and selected official video URLs have not been supplied as files/links, so those sections display clearly labeled placeholders instead of invented media. The video component is ready for owner-approved Instagram Reel or TikTok post URLs in `src/lib/social-videos.ts`. An account profile URL alone cannot provide a reliable automatic video feed; that would require authorized platform APIs. The visit section includes an embedded Google Maps search and the user-supplied directions link as a fallback. Design research access limitations are recorded in [design-references.md](docs/design-references.md).
 
 The address and Maps link came from the user's screenshot and link. The user confirmed the listed hours and phone/WhatsApp number. The Drive URL came from the user; direct anonymous access could not be checked from this environment because its outbound proxy denied the request.
 
-Current full-page previews: [desktop](docs/screenshots/palereman-desktop.png) and [mobile](docs/screenshots/palereman-mobile.png). They show the venue and video placeholders awaiting original media.
+Current full-page previews: [desktop](docs/screenshots/palereman-desktop.png) and [mobile](docs/screenshots/palereman-mobile.png). They show the venue and video placeholders awaiting original media. The map iframe could not load in this cloud environment's restricted browser; visitors can use the directions link below it.
 
 ## Develop
 

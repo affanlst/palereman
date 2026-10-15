@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { profile } from "@/lib/profile";
 import { MotionEnhancements } from "@/components/motion-enhancements";
+import { SocialVideos } from "@/components/social-videos";
 
 const newTab = { target: "_blank", rel: "noopener noreferrer" } as const;
 
@@ -10,19 +11,13 @@ export default function Home() {
       <MotionEnhancements />
       <section id="beranda" className="hero shell" aria-labelledby="hero-title">
         <div className="hero-copy">
+          <Image className="hero-gunungan" src="/images/gunungan-palereman.png" alt="Gunungan Palereman" width={657} height={905} priority />
           <p className="eyebrow">Palereman Coffee and View · Ponorogo</p>
           <h1 id="hero-title">Ruang untuk singgah. Waktu untuk menikmati.</h1>
           <p className="lead">Kopi, makanan, dan pemandangan dalam satu tempat di Singosaren.</p>
           <div className="actions">
             <a className="button button-gold" href={profile.menuDriveUrl} {...newTab}>View Menu <span className="sr-only">(buka Google Drive di tab baru)</span></a>
             <a className="text-link" href="#kunjungi">Rencanakan kunjungan</a>
-          </div>
-        </div>
-        <div className="hero-visual" role="img" aria-label="Bidang identitas Palereman. Foto venue asli belum tersedia.">
-          <div className="hero-visual-inner">
-            <span className="visual-index">Palereman · Coffee and View</span>
-            <Image className="hero-emblem" src="/images/gunungan-palereman.png" alt="" width={657} height={905} priority />
-            <span className="visual-caption">Foto tempat akan hadir di sini setelah tersedia.</span>
           </div>
         </div>
       </section>
@@ -49,7 +44,7 @@ export default function Home() {
 
       <section id="video" className="social shell" aria-labelledby="video-title">
         <div><span className="section-number">04 / Cerita dari Palereman</span><h2 id="video-title">Lihat cerita dari Palereman.</h2></div>
-        <div className="social-copy"><p>Video pilihan akan tampil di sini setelah tautan unggahan resminya tersedia. Kunjungi akun Instagram Palereman untuk melihat unggahan yang sudah dipublikasikan.</p><a className="button button-outline-dark" href={profile.instagramUrl} {...newTab}>Lihat Instagram Palereman <span className="sr-only">(buka tab baru)</span></a></div>
+        <SocialVideos />
       </section>
 
       <section id="kunjungi" className="visit" aria-labelledby="visit-title">
@@ -58,6 +53,10 @@ export default function Home() {
             <div><h3>Alamat</h3><p>{profile.address}</p><a className="text-link" href={profile.mapsUrl} {...newTab}>Petunjuk Arah <span className="sr-only">(buka tab baru)</span></a></div>
             <div><h3>Jam buka</h3><dl className="hours-list">{profile.hours.map(({ day, time }) => <div key={day}><dt>{day}</dt><dd>{time}</dd></div>)}</dl></div>
             <div><h3>Hubungi</h3><a className="phone-link" href={profile.phoneHref}>{profile.phoneDisplay}</a><p className="contact-note">Ada pertanyaan sebelum datang?</p><a className="button button-gold" href={profile.whatsappUrl} {...newTab}>Hubungi Palereman <span className="sr-only">via WhatsApp (buka tab baru)</span></a></div>
+          </div>
+          <div className="map-panel">
+            <iframe title="Peta lokasi Palereman Coffee and View di Ponorogo" src="https://www.google.com/maps?q=Palereman%20Coffee%20and%20View%20Ponorogo&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <div className="map-caption"><span>Palereman · Singosaren, Ponorogo<br /><small>Jika peta tidak tampil, buka petunjuk arah.</small></span><a className="text-link" href={profile.mapsUrl} {...newTab}>Buka Petunjuk Arah <span className="sr-only">(buka tab baru)</span></a></div>
           </div>
         </div>
       </section>
