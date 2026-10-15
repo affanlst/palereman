@@ -1,25 +1,21 @@
 # Palereman Coffee and View
 
-Next.js 16 single page site based on the [revised PRD](docs/PRD-Palereman.md). The home page contains Tentang, Suasana, Menu, Video, and Kunjungi sections. Menu buttons open the [public Google Drive menu](https://drive.google.com/file/d/1L7ihFNGiLOhXX5wK7XbqEQ8DGiBHlEjS/view) in a new tab. The URL is configured once in `src/lib/profile.ts`. Old `/menu`, `/suasana`, and `/kunjungi` routes redirect to their respective home page sections.
+Next.js 16, React and TypeScript single page website. The active specification is [PRD 2.0](docs/PRD-Palereman-v2-approved.md); the [approved design](docs/design/approved-desktop.webp) and [design direction](docs/design-direction-v3.md) document the user's redesign approval.
 
-The gunungan artwork and one food photo were extracted from the supplied Palereman menu. A newly generated ornamental wayang illustration decorates the hero; it is not an official Palereman character or historical depiction. Venue photos and selected official video URLs have not been supplied as files/links, so those sections display clearly labeled placeholders instead of invented media. The video component is ready for owner-approved Instagram Reel or TikTok post URLs in `src/lib/social-videos.ts`. An account profile URL alone cannot provide a reliable automatic video feed; that would require authorized platform APIs. The visit section includes an embedded Google Maps search and the user-supplied directions link as a fallback. Design research access limitations are recorded in [design-references.md](docs/design-references.md).
-
-The address and Maps link came from the user's screenshot and link. The user confirmed the listed hours and phone/WhatsApp number. The Drive URL came from the user; direct anonymous access could not be checked from this environment because its outbound proxy denied the request.
-
-Current full-page previews: [desktop](docs/screenshots/palereman-desktop.png) and [mobile](docs/screenshots/palereman-mobile.png). They show the venue and video placeholders awaiting original media. The map iframe could not load in this cloud environment's restricted browser; visitors can use the directions link below it.
+The site uses warm cream, locally hosted Newsreader and Source Sans 3, and a continuous Javanese mural from the hero through the footer. Suasana has its image on the left, while Menu has its image on the right. Shared containers align header, sections and footer. Mobile has a native collapsible menu and a keyboard-scrollable video rail. The mural remains static, and reduced motion disables smooth scrolling and transitions.
 
 ## Develop
 
-Node.js 20.9 or newer is required. Node.js 24 was used during development.
+Node.js 20.9 or newer is required. This environment uses Node.js 24.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Use `http://localhost:3000` for local development. Current Next.js development resources require a matching allowed origin; a different hostname or tunnel needs an explicitly scoped `allowedDevOrigins` entry. The production server does not depend on the development HMR connection.
 
-## Check and run a production build
+## Validate and self host
 
 ```sh
 npm run lint
@@ -28,12 +24,20 @@ npm run build
 npm run start
 ```
 
-The production server runs on port 3000 by default. Set `PORT` to use a different port. For self hosting, run the production server behind an HTTPS reverse proxy and keep the Node.js process supervised.
+Production uses port 3000 unless `PORT` or `--port` is supplied. Run behind an HTTPS reverse proxy with a supervised Node.js process. No new environment variables or platform credentials are required for the redesign.
 
-## Before public launch
+## Content and integrations
 
-- Verify that the Google Drive menu opens without login on desktop and mobile.
-- Add licensed, original photos of the venue to replace the visible placeholder. The photo sent in chat was not available as a project file.
-- Add verified Instagram Reel and TikTok video URLs and locally usable cover images before claiming official videos or embedding players.
-- Complete the Dribbble/Pinterest reference review when those sites can be accessed.
-- Recheck the final images, links, keyboard access, and performance after media has been added.
+Business information is configured in `src/lib/profile.ts`. The address and Maps link came from the user's screenshot and link. The user confirmed the phone/WhatsApp number and hours: 08.00–20.00, Friday closed.
+
+Both menu buttons open the same Google Drive URL from that configuration in a new tab. `/menu`, `/suasana` and `/kunjungi` redirect to their corresponding homepage anchors. There is no local menu PDF or full menu catalogue.
+
+The Nasi Bakar photograph and official gunungan were extracted from the supplied menu. The continuous mural is original generated decoration made for the user-approved design; it is not an official historical character sheet or a licensed stock image. Font license files are in `public/fonts`. See [asset notes](docs/design/README.md).
+
+Venue photo files and selected official video post URLs are still missing. Hero and Suasana use explicit photo placeholders. The three video placeholders have no fake play controls; the Instagram link works independently. To enable official players, add approved post URLs and locally usable covers to `src/lib/social-videos.ts`. The component loads one player at a time on request, with loading, failure/retry, close controls and source links. A profile URL alone is not an automatic feed, and no scraping is used.
+
+The visit section contains a lazy Google Maps iframe and an always-visible directions link. This cloud environment blocks Google Maps and anonymous Drive requests; those remote destinations need verification from a visitor's unrestricted browser. Link targets and new-tab behavior can be tested locally without claiming the remote content is accessible.
+
+## Review
+
+Current website screenshots: [desktop](docs/screenshots/palereman-desktop.png), [mobile](docs/screenshots/palereman-mobile.png). These are browser captures of the implementation, not generated mockups. [Verification notes](docs/redesign-verification.md) record executed checks and remaining media limitations.

@@ -1,4 +1,6 @@
 # PRD Revisi Website Palereman
+
+> Arsip versi 1.1. Acuan aktif adalah [PRD 2.0: desain yang disetujui](PRD-Palereman-v2-approved.md), yang menggantikan ketentuan visual dan motion dokumen ini berdasarkan ACC pengguna.
 Versi 1.1 | Spesifikasi revisi implementasi existing | 15 Oktober 2026
 
 ## 1. Tujuan revisi

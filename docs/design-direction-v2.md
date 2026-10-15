@@ -1,5 +1,7 @@
 # Arah visual: panggung Palereman
 
+> Arsip. Arah aktif: [desain krem dan mural Jawa v3](design-direction-v3.md), sesuai persetujuan pengguna.
+
 Brief terbaru dari pengguna: halaman tetap satu, lebih terasa sebagai situs tradisional Jawa, dengan ornamen abstrak Jawa dan figur wayang sebagai latar. Video dan peta tampil di halaman utama.
 
 Design Read: landing page kafe Ponorogo dengan bahasa visual panggung wayang dan halaman buku menu. ENERGY 2 / RHYTHM 3 / MOTION 2. Gerak ditempatkan pada gunungan dan pembukaan, sementara ornamen statis agar isi mudah dibaca.
