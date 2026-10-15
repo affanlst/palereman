@@ -1,64 +1,64 @@
-import Link from "next/link";
 import Image from "next/image";
-import { formatRupiah, menuItems } from "@/lib/menu";
 import { profile } from "@/lib/profile";
+import { MotionEnhancements } from "@/components/motion-enhancements";
 
-const selections = ["kopi-rempah", "nasi-bakar-palereman", "es-keluarga-cemara"].map((id) => menuItems.find((item) => item.id === id)!);
+const newTab = { target: "_blank", rel: "noopener noreferrer" } as const;
 
 export default function Home() {
   return (
     <>
-      <section className="hero shell">
+      <MotionEnhancements />
+      <section id="beranda" className="hero shell" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">Palereman Coffee and View</p>
-          <h1>Mampir, ngopi, menikmati waktu.</h1>
-          <p className="lead">Kopi, unjukan, dan masakan Palereman. Pilih yang ingin dicoba dari buku menu kami.</p>
+          <p className="eyebrow">Palereman Coffee and View · Ponorogo</p>
+          <h1 id="hero-title">Ruang untuk singgah. Waktu untuk menikmati.</h1>
+          <p className="lead">Kopi, makanan, dan pemandangan dalam satu tempat di Singosaren.</p>
           <div className="actions">
-            <Link className="button button-gold" href="/menu">Lihat menu <span aria-hidden="true">→</span></Link>
-            <Link className="text-link" href="/kunjungi">Rencanakan kunjungan <span aria-hidden="true">→</span></Link>
+            <a className="button button-gold" href={profile.menuDriveUrl} {...newTab}>View Menu <span className="sr-only">(buka Google Drive di tab baru)</span></a>
+            <a className="text-link" href="#kunjungi">Rencanakan kunjungan</a>
           </div>
         </div>
-        <div className="hero-visual" aria-label="Area foto tempat. Foto resmi Palereman belum tersedia.">
+        <div className="hero-visual" role="img" aria-label="Bidang identitas Palereman. Foto venue asli belum tersedia.">
           <div className="hero-visual-inner">
-            <span className="visual-index">01 / Palereman</span>
-            <p>Tempat untuk<br /><em>berhenti sejenak.</em></p>
-            <span className="visual-caption">Foto suasana akan ditampilkan setelah tersedia.</span>
+            <span className="visual-index">Palereman · Coffee and View</span>
+            <Image className="hero-emblem" src="/images/gunungan-palereman.png" alt="" width={657} height={905} priority />
+            <span className="visual-caption">Foto tempat akan hadir di sini setelah tersedia.</span>
           </div>
         </div>
       </section>
 
-      <section className="intro-band">
+      <section id="tentang" className="intro-band" aria-labelledby="about-title">
         <div className="shell intro-grid">
-          <div className="intro-brand"><span className="section-number">01 <span aria-hidden="true">/</span> Tentang Palereman</span><Image src="/images/logo-palereman.png" alt="Logo gunungan Palereman Coffee and View" width={657} height={1135} /></div>
-          <div>
-            <h2>Satu meja, banyak pilihan.</h2>
-            <p>Buku menu Palereman memuat kopi, minuman segar, makanan, dan camilan. Di sini, kamu bisa melihat pilihan yang sudah kami cocokkan dengan dokumen menu.</p>
+          <div className="intro-brand"><span className="section-number">01 / Tentang Palereman</span><Image className="gunungan-motion" src="/images/gunungan-palereman.png" alt="Gunungan dari logo Palereman" width={657} height={905} /></div>
+          <div><h2 id="about-title">Duduk sebentar, lihat lebih jauh.</h2><p>Palereman Coffee and View berada di Singosaren, Ponorogo. Menu kami mencakup kopi, minuman segar, makanan, dan camilan untuk dinikmati di tempat.</p></div>
+        </div>
+      </section>
+
+      <section id="suasana" className="atmosphere shell" aria-labelledby="atmosphere-title">
+        <div className="section-heading"><span className="section-number">02 / Suasana</span><h2 id="atmosphere-title">Kenali sudut Palereman.</h2><p>Foto tempat asli sedang disiapkan. Sementara itu, kamu bisa melihat lokasi dan merencanakan kunjungan.</p></div>
+        <div className="venue-placeholder" role="img" aria-label="Tempat untuk foto suasana Palereman; foto asli belum tersedia"><span>Sudut Palereman</span><strong>Singosaren,<br />Ponorogo.</strong><span>Foto venue menyusul</span></div>
+        <a className="text-link" href={profile.mapsUrl} {...newTab}>Lihat lokasi di Google Maps <span className="sr-only">(buka tab baru)</span></a>
+      </section>
+
+      <section id="menu" className="menu-feature" aria-labelledby="menu-title">
+        <div className="shell menu-grid">
+          <div className="menu-copy"><span className="section-number">03 / Menu</span><h2 id="menu-title">Pilih yang ingin kamu nikmati.</h2><p>Jelajahi buku menu Palereman di Google Drive. Kamu bisa membukanya sebelum datang atau saat sudah duduk di sini.</p><a className="button button-gold" href={profile.menuDriveUrl} {...newTab}>View Menu <span className="sr-only">(buka Google Drive di tab baru)</span></a></div>
+          <div className="menu-art" role="img" aria-label="Foto Nasi Bakar Palereman dari buku menu"><Image src="/images/nasi-bakar-palereman.png" alt="" width={518} height={242} /></div>
+        </div>
+      </section>
+
+      <section id="video" className="social shell" aria-labelledby="video-title">
+        <div><span className="section-number">04 / Cerita dari Palereman</span><h2 id="video-title">Lihat cerita dari Palereman.</h2></div>
+        <div className="social-copy"><p>Video pilihan akan tampil di sini setelah tautan unggahan resminya tersedia. Kunjungi akun Instagram Palereman untuk melihat unggahan yang sudah dipublikasikan.</p><a className="button button-outline-dark" href={profile.instagramUrl} {...newTab}>Lihat Instagram Palereman <span className="sr-only">(buka tab baru)</span></a></div>
+      </section>
+
+      <section id="kunjungi" className="visit" aria-labelledby="visit-title">
+        <div className="shell"><div className="visit-heading"><span className="section-number">05 / Kunjungi</span><h2 id="visit-title">Sampai jumpa di Palereman.</h2></div>
+          <div className="visit-info">
+            <div><h3>Alamat</h3><p>{profile.address}</p><a className="text-link" href={profile.mapsUrl} {...newTab}>Petunjuk Arah <span className="sr-only">(buka tab baru)</span></a></div>
+            <div><h3>Jam buka</h3><dl className="hours-list">{profile.hours.map(({ day, time }) => <div key={day}><dt>{day}</dt><dd>{time}</dd></div>)}</dl></div>
+            <div><h3>Hubungi</h3><a className="phone-link" href={profile.phoneHref}>{profile.phoneDisplay}</a><p className="contact-note">Ada pertanyaan sebelum datang?</p><a className="button button-gold" href={profile.whatsappUrl} {...newTab}>Hubungi Palereman <span className="sr-only">via WhatsApp (buka tab baru)</span></a></div>
           </div>
-        </div>
-      </section>
-
-      <section className="featured shell">
-        <div className="section-heading">
-          <div><span className="section-number">02 <span aria-hidden="true">/</span> Dari buku menu</span><h2>Mulai dari sini.</h2></div>
-          <Link href="/menu" className="text-link">Lihat semua pilihan <span aria-hidden="true">→</span></Link>
-        </div>
-        <div className="featured-list">
-          {selections.map((item, index) => (
-            <div className="featured-item" key={item.id}>
-              <span className="featured-index">0{index + 1}</span>
-              {item.image && <div className="featured-image"><Image src={item.image} alt={item.name} width={120} height={120} /></div>}
-              <div><span className="item-category">{item.category}</span><h3>{item.name}</h3></div>
-              <span className="featured-price">{formatRupiah(item.variants[0].priceIDR)}</span>
-            </div>
-          ))}
-        </div>
-        <p className="source-note">Harga mengikuti dokumen menu yang diberikan dan belum dikonfirmasi sebagai harga terkini.</p>
-      </section>
-
-      <section className="visit-strip">
-        <div className="shell visit-strip-inner">
-          <div><span className="section-number">03 <span aria-hidden="true">/</span> Datang berkunjung</span><h2>Kenali tempatnya lebih dekat.</h2><p className="visit-strip-address">{profile.address}</p></div>
-          <Link className="button button-outline" href="/kunjungi">Info kunjungan <span aria-hidden="true">→</span></Link>
         </div>
       </section>
     </>

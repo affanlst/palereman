@@ -1,10 +1,10 @@
 # Palereman Coffee and View
 
-Next.js site draft based on [the supplied PRD](docs/PRD-Palereman.md) (15 October 2026). The site has a home page, a searchable menu, a gallery placeholder, and a visit page.
+Next.js 16 single page site based on the [revised PRD](docs/PRD-Palereman.md). The home page contains Tentang, Suasana, Menu, Video, and Kunjungi sections. Menu buttons open the [public Google Drive menu](https://drive.google.com/file/d/1L7ihFNGiLOhXX5wK7XbqEQ8DGiBHlEjS/view) in a new tab. The URL is configured once in `src/lib/profile.ts`. Old `/menu`, `/suasana`, and `/kunjungi` routes redirect to their respective home page sections.
 
-The compressed 12-page menu PDF is available for download on the menu page. Its item names, price columns, and selected images are included in the site. The gunungan logo was extracted from that PDF. The address and map link came from a Google Maps screenshot and link supplied by the user; the user confirmed the listed hours and phone/WhatsApp number. Current menu prices and venue photos still need confirmation or source files before launch. Placeholders on the site identify missing venue photos.
+The gunungan artwork and one food photo were extracted from the supplied Palereman menu. Venue photos and selected official video URLs have not been supplied as files/links, so those sections display clearly labeled placeholders instead of invented media. Design research access limitations are recorded in [design-references.md](docs/design-references.md).
 
-The [desktop and mobile screenshots](docs/Palereman-screenshots-desktop-mobile.pdf) show the current site, including its venue photo placeholders.
+The address and Maps link came from the user's screenshot and link. The user confirmed the listed hours and phone/WhatsApp number. The Drive URL came from the user; direct anonymous access could not be checked from this environment because its outbound proxy denied the request.
 
 ## Develop
 
@@ -15,7 +15,7 @@ npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000`. The menu is defined in `src/lib/menu.ts`.
+Open `http://localhost:3000`.
 
 ## Check and run a production build
 
@@ -28,10 +28,10 @@ npm run start
 
 The production server runs on port 3000 by default. Set `PORT` to use a different port. For self hosting, run the production server behind an HTTPS reverse proxy and keep the Node.js process supervised.
 
-## Content completion
+## Before public launch
 
-1. Confirm current prices with the venue. The menu data in `src/lib/menu.ts` follows the supplied PDF, including the hot and cold columns. `Nasi Putih` appears twice in the PDF and once on the site.
-2. If a higher-resolution master logo is available, replace the PDF extraction while preserving its proportions and colors.
-3. Add licensed, verified photos of the actual venue. Replace the visible photo placeholders. Selected menu photos were extracted from the PDF at their original, modest resolution.
-4. Recheck the map destination and Instagram account before launch. The cloud environment could not open the supplied short Google Maps URL, though the user supplied a screenshot of its details.
-5. Recheck mobile layout, keyboard access, links, metadata, and performance with the final media.
+- Verify that the Google Drive menu opens without login on desktop and mobile.
+- Add licensed, original photos of the venue to replace the visible placeholder. The photo sent in chat was not available as a project file.
+- Add verified Instagram Reel and TikTok video URLs and locally usable cover images before claiming official videos or embedding players.
+- Complete the Dribbble/Pinterest reference review when those sites can be accessed.
+- Recheck the final images, links, keyboard access, and performance after media has been added.
