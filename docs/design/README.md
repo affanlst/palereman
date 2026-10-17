@@ -2,11 +2,13 @@
 
 ## Remake modern Jawa, 17 Oktober 2026
 
+- `public/images/suasana-palereman.jpg`: foto interior asli 1280 × 959 yang diunggah pengguna (`1000374464.jpg`), dipakai pada bagian suasana menggantikan ornamen. File disalin tanpa perubahan gambar; rasio aslinya dipertahankan.
+
 - `public/images/gunungan-palereman-transparent.png`: versi transparan yang direstorasi dari gunungan asli dengan alat edit gambar atas permintaan pengguna. Dipakai untuk logo navbar dan footer tanpa bidang krem atau blend multiply. Aset asli tetap disimpan untuk bagian suasana dan sumber ikon tab.
 
 - `public/images/wayang-editorial.webp`: ilustrasi wayang dekoratif generatif 1024 × 1536 dari arahan modern, batik, dan wayang pengguna. Ditampilkan sesuai rasio; bukan foto venue, logo resmi, atau klaim identitas tokoh sejarah.
 - `public/images/kawung.svg`: motif vektor terinspirasi kawung, dibuat untuk identitas batik yang diminta. Tajam pada setiap ukuran; tidak menggunakan raster yang diregangkan.
-- Foto Kopi Rempah memakai aset menu yang sudah tersedia. Foto venue tetap tidak direka. Bagian suasana memakai gunungan resmi serta tautan Instagram.
+- Foto Kopi Rempah memakai aset menu yang sudah tersedia. Foto suasana berasal dari unggahan pengguna, menggantikan ornamen gunungan pada bagian tersebut; tautan Instagram tetap tersedia.
 - Arah aktif: [v4](../design-direction-v4.md). Catatan mural di bawah adalah arsip desain sebelumnya, tidak lagi dirender.
 
 ## Arsip desain krem

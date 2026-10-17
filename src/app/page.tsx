@@ -50,8 +50,8 @@ export default function Home() {
       </section>
 
       <section id="suasana" className="atmosphere section shell" aria-labelledby="atmosphere-title">
-        <div className="atmosphere-art" aria-hidden="true"><div className="batik-panel" /><Image src="/images/gunungan-palereman.png" alt="" width={260} height={358} /><span>Palereman / Coffee and View</span></div>
-        <div className="section-copy"><p className="section-kicker">03 / Suasana</p><h2 id="atmosphere-title">Pelan sedikit.<br /><em>Cerita lebih lama.</em></h2><p>Sebuah jeda di Singosaren. Kopi di meja, pemandangan di depan mata, dan waktu untuk orang-orang terdekat.</p><a className="text-link" href={profile.instagramUrl} {...newTab}>Lihat tempatnya di Instagram <Icon name="arrow" /><span className="sr-only"> (tab baru)</span></a><p className="art-note">Ornamen gunungan Palereman. Foto tempat dapat dilihat di Instagram.</p></div>
+        <figure className="atmosphere-photo"><Image src="/images/suasana-palereman.jpg" alt="Ruang duduk Palereman dengan kursi kayu, tiang tinggi, dan atap tradisional" width={1280} height={959} sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1100px) 45vw, 590px" /><figcaption>Suasana di Palereman, Singosaren.</figcaption></figure>
+        <div className="section-copy"><p className="section-kicker">03 / Suasana</p><h2 id="atmosphere-title">Pelan sedikit.<br /><em>Cerita lebih lama.</em></h2><p>Sebuah jeda di Singosaren. Kopi di meja, pemandangan di depan mata, dan waktu untuk orang-orang terdekat.</p><a className="text-link" href={profile.instagramUrl} {...newTab}>Lihat suasana lainnya di Instagram <Icon name="arrow" /><span className="sr-only"> (tab baru)</span></a></div>
       </section>
 
       <section id="video" className="video-section section shell" aria-labelledby="video-title">

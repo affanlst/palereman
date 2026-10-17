@@ -1,5 +1,15 @@
 # Remake Palereman, 17 Oktober 2026
 
+## Foto suasana dari pengguna
+
+Bagian Suasana kini memakai foto interior `1000374464.jpg` yang diunggah pengguna, disimpan sebagai `public/images/suasana-palereman.jpg`. Pernyataan lama tentang ketiadaan foto venue merupakan riwayat sebelum unggahan ini.
+
+- PASS: file JPEG 1280 × 959 sama persis dengan unggahan, tanpa filter atau pengeditan gambar. Tampilan mengikuti rasio sumber, dengan pembulatan ukuran dari optimizer gambar; tidak menggunakan crop.
+- PASS: lint, TypeScript, build produksi, dan pemeriksaan browser pada 320, 390, 768, 1440 px. Foto berhasil dimuat, tidak ada overflow atau JavaScript page error aplikasi.
+- PASS: foto mempunyai alt deskriptif, tidak disembunyikan dari pembaca layar, dan caption ada di bawah gambar. Teks tidak melapisi foto; warna serta indikator fokus memakai sistem desain yang sudah diuji. Tautan Instagram tetap mengarah ke `palereman.png`.
+
+[Suasana desktop](screenshots/palereman-suasana-desktop.png) · [Suasana mobile](screenshots/palereman-suasana-mobile.png).
+
 Bagian sosial kemudian diganti dengan embed Elfsight atas permintaan pengguna. Pemeriksaan kartu video di dokumen ini merupakan riwayat sebelum penggantian. Untuk implementasi dan batas verifikasi terbaru, lihat [penelusuran Elfsight](elfsight-investigation.md).
 
 ## Pembaruan logo gunungan
