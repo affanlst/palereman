@@ -2,7 +2,7 @@
 
 Next.js 16, React and TypeScript single page website. Business information follows [PRD 2.0](docs/PRD-Palereman-v2-approved.md). The current [modern Jawa design direction](docs/design-direction-v4.md) implements the user's October 17 remake request and supersedes the older cream mural design.
 
-The site pairs forest green, cream and copper with a fixed-ratio wayang illustration and crisp vector batik inspired by kawung. Locally hosted Newsreader and Source Sans 3 provide editorial headings and readable body text. Menu photography comes from the supplied Palereman menu. Mobile has a native collapsible menu and a keyboard-scrollable video rail. Reduced motion disables smooth scrolling and transitions.
+The site pairs forest green, cream and copper with a fixed-ratio wayang illustration and crisp vector batik inspired by kawung. Locally hosted Newsreader and Source Sans 3 provide editorial headings and readable body text. Menu photography comes from the supplied Palereman menu. Mobile has a native collapsible menu. The social section uses an Elfsight embed with persistent profile links. Reduced motion disables local smooth scrolling and transitions.
 
 ## Develop
 
@@ -34,9 +34,13 @@ Both menu buttons open the same Google Drive URL from that configuration in a ne
 
 The Nasi Bakar and Kopi Rempah photographs and official gunungan were extracted from the supplied menu. The new wayang artwork is generated decorative illustration, not an official logo or historical character identification. The old mural remains an archived asset and is no longer rendered. Font license files are in `public/fonts`. See [asset notes](docs/design/README.md).
 
-Venue photo files are still missing. Hero uses decorative wayang art; Suasana uses the official gunungan with a link to the venue's Instagram. The user supplied two TikTok short links and one Instagram Reel, configured in `src/lib/social-videos.ts`. All three cards have working play controls and source links. Since cover images have not been supplied, the cards use platform labels and decorative batik rather than invented thumbnails. The component loads one official player at a time on request, with loading, failure/retry and close controls.
+Venue photo files are still missing. Hero uses decorative wayang art; Suasana uses the official gunungan with a link to the venue's Instagram.
 
-Instagram has a direct embed URL. TikTok short links are resolved on demand by `/api/videos/[id]`, which follows only HTTPS redirects on an explicit TikTok hostname allowlist. It accepts configured video IDs only, with an eight-second resolution deadline and a five-redirect limit. No HTML/video scraping is used. The production Node.js server must be able to reach TikTok to resolve the short links; if that request or a platform player fails, the source link remains available. Full canonical TikTok URLs can replace short links in the configuration later to eliminate the resolution step. See [video integration checks](docs/video-integration-verification.md) for actual versus simulated test coverage.
+The social section now uses the user-provided Elfsight widget `f1b94c89-8127-4922-8666-ab81c060cd92`, loaded by `src/components/social-feed.tsx`. The Instagram and TikTok links both point to `palereman.png`. Feed sources must be configured in the widget's Elfsight dashboard; the embed code does not set usernames or provide API credentials. The loader uses the original lazy embed attribute, with loading/failure/slow states and profile links that remain accessible. No Elfsight account credentials are needed in this repository.
+
+The current cloud proxy denies the Elfsight loader. Actual provider output and account configuration remain unverified; fixture tests cover local recovery and integration behavior only. [Elfsight investigation](docs/elfsight-investigation.md) distinguishes observed results, architecture inferences, saved network requirements, and remaining live checks.
+
+The previous three-video component, `src/lib/social-videos.ts`, and `/api/videos/[id]` remain as legacy code; the homepage no longer renders those cards. Their earlier [video integration checks](docs/video-integration-verification.md) are historical.
 
 The visit section contains a lazy Google Maps iframe and an always-visible directions link. This cloud environment blocks Google Maps and anonymous Drive requests; those remote destinations need verification from a visitor's unrestricted browser. Link targets and new-tab behavior can be tested locally without claiming the remote content is accessible.
 

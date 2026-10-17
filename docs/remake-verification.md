@@ -1,5 +1,7 @@
 # Remake Palereman, 17 Oktober 2026
 
+Bagian sosial kemudian diganti dengan embed Elfsight atas permintaan pengguna. Pemeriksaan kartu video di dokumen ini merupakan riwayat sebelum penggantian. Untuk implementasi dan batas verifikasi terbaru, lihat [penelusuran Elfsight](elfsight-investigation.md).
+
 ## Pembaruan logo gunungan
 
 Logo navbar dan footer sekarang memakai `gunungan-palereman-transparent.png`, versi transparan yang direstorasi dari aset pada bagian “Pelan sedikit. Cerita lebih lama.” File gambar asli tidak diubah. Nama Palereman tetap menjadi identitas teks di navbar; link logo kembali ke beranda.

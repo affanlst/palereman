@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Icon } from "@/components/icon";
-import { SocialVideos } from "@/components/social-videos";
+import { SocialFeed } from "@/components/social-feed";
 import { profile } from "@/lib/profile";
 
 const newTab = { target: "_blank", rel: "noopener noreferrer" } as const;
@@ -55,9 +55,9 @@ export default function Home() {
       </section>
 
       <section id="video" className="video-section section shell" aria-labelledby="video-title">
-        <div className="section-kicker"><span>04 / Cerita yang bergerak</span><span className="hairline" /></div>
-        <div className="video-heading"><h2 id="video-title">Sepotong <em>Palereman.</em></h2><p>Lihat momen dan suasana<br />melalui video pilihan kami.</p></div>
-        <SocialVideos />
+        <div className="section-kicker"><span>04 / Kabar Palereman</span><span className="hairline" /></div>
+        <div className="video-heading"><h2 id="video-title">Sepotong <em>Palereman.</em></h2><p>Unggahan dan cerita dari<br />Instagram &amp; TikTok @palereman.png.</p></div>
+        <SocialFeed />
       </section>
 
       <section id="kunjungi" className="visit" aria-labelledby="visit-title"><div className="shell section">

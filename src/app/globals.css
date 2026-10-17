@@ -113,6 +113,13 @@ section[id] { scroll-margin-top: 100px; }
 .video-section { padding-top: 10px; }
 .video-heading { display: flex; justify-content: space-between; gap: 35px; align-items: end; margin-bottom: 40px; }
 .video-heading > p { color: var(--muted); font-size: 16px; }
+.social-feed { min-width: 0; }
+.social-feed-host { min-width: 0; }
+.social-feed-host-loading { min-height: 160px; }
+.social-feed-status { padding: 24px; border: 1px solid var(--line); background: var(--card); font-size: 16px; }
+.social-feed-status .text-link { margin-top: 10px; }
+.social-feed-profiles { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 24px; font-size: 15px; }
+.social-feed-profiles > div { display: flex; gap: 26px; }
 .social-video-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 26px; list-style: none; padding: 0; margin: 0; }
 .social-video { position: relative; min-width: 0; }
 .social-cover, .social-player { width: 100%; aspect-ratio: 4/5; border: 1px solid #68735d; position: relative; background: #dfe2d3; }

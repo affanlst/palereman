@@ -9,7 +9,7 @@ const links = [
   { id: "tentang", label: "Tentang" },
   { id: "menu", label: "Menu" },
   { id: "suasana", label: "Suasana" },
-  { id: "video", label: "Video" },
+  { id: "video", label: "Sosial" },
   { id: "kunjungi", label: "Kunjungi" },
 ];
 

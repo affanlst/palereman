@@ -1,0 +1,49 @@
+# Elfsight Social Feed: integrasi dan penelusuran
+
+17 Oktober 2026. Widget milik pengguna: `f1b94c89-8127-4922-8666-ab81c060cd92`. Instagram dan TikTok yang diminta sama-sama `palereman.png`.
+
+## Yang benar-benar dapat diperiksa
+
+Snippet pengguna memasang `https://elfsightcdn.com/platform.js` dan sebuah container berkelas `elfsight-app-f1b94c89-8127-4922-8666-ab81c060cd92` dengan atribut lazy. Username, daftar unggahan, dan kredensial tidak ada pada snippet. Karena itu, memasang kode ini tidak sekaligus mengubah sumber akun di dashboard Elfsight.
+
+Penelusuran dimulai sebelum mengganti komponen lokal. Permintaan HTTPS ke `elfsightcdn.com/platform.js` ditolak proxy lingkungan pada CONNECT: HTTP 403, `server: envoy`. Browser Chromium juga menghasilkan `net::ERR_TUNNEL_CONNECTION_FAILED`. Tidak ada body JavaScript yang berhasil diunduh untuk dianalisis.
+
+Probe read-only ke calon endpoint bootstrap `https://core.service.elfsight.com/p/boot/?w=f1b94c89-8127-4922-8666-ab81c060cd92` juga ditolak saat CONNECT. Path bootstrap ini merupakan kandidat investigasi, bukan endpoint yang berhasil diamati dari script atau response widget. Tidak ada konfigurasi widget, respons feed, atau sumber akun live yang berhasil dibaca. Kegagalan proxy cloud ini tidak membuktikan bahwa widget rusak pada website publik.
+
+## Bagaimana embed semacam ini dapat langsung tampil
+
+Yang terlihat langsung dari snippet adalah pemuatan runtime JavaScript dan pemilihan instance widget lewat UUID. Penjelasan arsitektur umum yang masuk akal adalah runtime membaca ID, mengambil konfigurasi/data dari layanan penyedia, lalu merender feed ke container. Layanan feed biasanya menyiapkan data dan media di backend/cache sehingga browser tidak perlu meminta seluruh profil Instagram/TikTok sendiri setiap kali halaman dibuka.
+
+Bagian backend/cache tersebut adalah penjelasan pola implementasi, bukan hasil reverse engineering terhadap backend Elfsight. Cara autentikasi, cache, refresh, pembatasan paket/domain, serta pengambilan media pada widget ini belum dapat dikonfirmasi tanpa respons live. Tidak ada endpoint privat, kredensial, atau metode pengambilan data yang direka sebagai hasil penemuan.
+
+Jika membuat pengganti mandiri, lapisan tampilan saja cukup untuk merender daftar posting yang sudah tersedia. Feed otomatis memerlukan sumber data yang sah, misalnya integrasi API resmi dengan akun yang mengizinkan akses, proses server untuk refresh/cache, dan komponen UI. Dua username saja belum menyediakan data posting maupun izin API. Belum dibuat pengganti yang berpura-pura mengambil feed otomatis.
+
+## Implementasi situs
+
+- `src/components/social-feed.tsx` memuat script resmi sekali melalui `next/script` dengan `afterInteractive`. UUID dan atribut lazy mengikuti snippet pengguna.
+- Tiga kartu video lama tidak lagi dirender. Anchor `#video` dipertahankan agar tautan lama tetap berlaku; nama navigasinya menjadi Sosial.
+- Status lokal menangani pemuatan, kegagalan script, serta pemuatan yang lebih lama dari 15 detik setelah bagian mendekati viewport. Output provider tetap boleh muncul setelah timeout, tanpa menghapus container. Pendeteksi output hanya menandakan adanya DOM provider; tidak menyatakan bahwa API atau posting live telah terverifikasi.
+- Tautan profil Instagram dan TikTok selalu tersedia. Tombol “Muat ulang halaman” memiliki aksi reload yang sesuai namanya.
+- Tidak ada override terhadap kelas/style internal Elfsight, penghilangan atribusi, atau salinan script provider. Data dan tampilan feed aktual tetap dikelola oleh widget Elfsight.
+- Komponen serta API video lama disimpan sebagai implementasi sebelumnya; tidak dipakai oleh homepage.
+
+## Hasil pemeriksaan
+
+- PASS: lint, TypeScript, dan build produksi.
+- PASS: 320, 390, 768, 1440 px tanpa overflow dokumen pada keadaan jaringan nyata yang gagal; satu request loader per dokumen, UUID tepat, dan kartu lama tidak tampil.
+- PASS: fallback kegagalan script nyata terbaca; tidak ada JavaScript page error aplikasi. Kedua profil mengarah ke URL `palereman.png` yang tepat.
+- PASS dengan fixture: output widget disisipkan ke container, status lokal menghilang, reload memulihkan keadaan gagal, dan kedua profil membuka tab baru. Ini bukan bukti posting Elfsight asli tampil.
+- PASS dengan fixture dan waktu virtual: timeout tidak dimulai saat bagian masih jauh di bawah viewport; pesan lambat muncul setelah bagian terlihat; output yang datang belakangan tetap dapat tampil.
+- Belum terverifikasi: script live, konfigurasi widget, unggahan akun, serta tampilan/kontrol provider pada desktop/mobile. Pengujian visual provider menunggu akses jaringan, bukan digantikan oleh hasil fixture.
+
+[Hasil browser terstruktur](elfsight-browser-results.json). Screenshot menunjukkan fallback cloud nyata: [mobile](screenshots/elfsight-390-cloud-fallback.png), [desktop](screenshots/elfsight-1440-cloud-fallback.png). Tidak ada screenshot feed palsu yang disebut sebagai hasil live.
+
+## Konfigurasi cloud yang disimpan
+
+Draft akses jaringan menambahkan `elfsightcdn.com` dan `core.service.elfsight.com`, sambil mempertahankan lima domain TikTok yang sudah tersimpan serta preset package manager. Draft tersimpan terkonfirmasi, tetapi perubahan belum diterapkan atau dipublikasikan oleh proses penyimpanan ini.
+
+Untuk melanjutkan penelusuran live dari cloud, review dan simpan perubahan di environment settings, lalu publish environment. Setelah akses benar-benar berlaku, ulangi unduhan runtime, amati request provider di browser, periksa sumber Instagram/TikTok pada konfigurasi widget, lalu uji unggahan serta kontrol asli. Domain CDN/media tambahan hanya dapat ditentukan dari request yang benar-benar terlihat. Untuk akun widget sendiri, pastikan kedua sumber di dashboard Elfsight menggunakan `palereman.png`.
+
+## Pemeriksaan desain lokal
+
+PASS: warna, tipografi, motif, dan kontras teks fallback memakai sistem desain Jawa yang sudah diuji; tautan dan tombol memiliki fokus serta target sentuh. PASS: tidak ada unggahan, thumbnail, testimoni, atau data sosial buatan pada UI produksi. PASS: status loading/error/slow dan tautan keluar tetap jelas pada mobile. Bagian provider belum diberi klaim lulus aksesibilitas atau visual karena DOM live-nya belum dapat diperiksa.

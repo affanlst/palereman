@@ -1,0 +1,38 @@
+{
+  "live": {
+    "requests": 4,
+    "failures": [
+      "net::ERR_TUNNEL_CONNECTION_FAILED",
+      "net::ERR_TUNNEL_CONNECTION_FAILED",
+      "net::ERR_TUNNEL_CONNECTION_FAILED",
+      "net::ERR_TUNNEL_CONNECTION_FAILED"
+    ],
+    "widgetOutput": "",
+    "status": "Cloud loader request blocked; readable fallback and profile links visible"
+  },
+  "layouts": [
+    {
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440
+    }
+  ],
+  "fixtures": [
+    "Reload recovery: simulated loader output is mounted and the local loading/failure message clears",
+    "Both profile links open their exact palereman.png URLs in a new tab (external responses simulated)",
+    "No-output timeout starts when the lazy widget enters the viewport, not while the visitor is above the section",
+    "Late widget output recovers after the slow state; provider root stays mounted"
+  ],
+  "pageErrors": []
+}

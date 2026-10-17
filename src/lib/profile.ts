@@ -3,6 +3,7 @@
 export const profile = {
   menuDriveUrl: "https://drive.google.com/file/d/1L7ihFNGiLOhXX5wK7XbqEQ8DGiBHlEjS/view",
   instagramUrl: "https://www.instagram.com/palereman.png/",
+  tiktokUrl: "https://www.tiktok.com/@palereman.png",
   address: "Singosaren, Setono, Kec. Jenangan, Kabupaten Ponorogo, Jawa Timur 63492",
   mapsUrl: "https://share.google/8YMx2kgAo053VxVOL",
   phoneDisplay: "0857-2674-1940",

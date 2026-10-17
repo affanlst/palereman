@@ -13,7 +13,7 @@ export function SiteFooter() {
           <Link href="/#tentang">Tentang</Link>
           <Link href="/#menu">Menu</Link>
           <Link href="/#suasana">Suasana</Link>
-          <Link href="/#video">Video</Link>
+          <Link href="/#video">Sosial</Link>
           <Link href="/#kunjungi">Kunjungi</Link>
         </nav>
         <div className="footer-contact">
