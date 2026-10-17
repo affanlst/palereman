@@ -38,6 +38,8 @@ Hero uses decorative wayang art. Suasana displays four original user-supplied ve
 
 The social section now uses the user-provided Elfsight widget `f1b94c89-8127-4922-8666-ab81c060cd92`, loaded by `src/components/social-feed.tsx`. The Instagram and TikTok links both point to `palereman.png`. Feed sources must be configured in the widget's Elfsight dashboard; the embed code does not set usernames or provide API credentials. The loader uses the original lazy embed attribute, with loading/failure/slow states and profile links that remain accessible. No Elfsight account credentials are needed in this repository.
 
+The feed wrapper constrains provider root widths and contains horizontal overflow locally, with gutters for carousel arrows. This prevents a widget that grows after loading from increasing the mobile page width; vertical feed growth and the separate photo gallery remain available. [Overflow regression results](docs/elfsight-overflow-results.json) cover the deliberately oversized provider fixture.
+
 The current cloud proxy denies the Elfsight loader. Actual provider output and account configuration remain unverified; fixture tests cover local recovery and integration behavior only. [Elfsight investigation](docs/elfsight-investigation.md) distinguishes observed results, architecture inferences, saved network requirements, and remaining live checks.
 
 The previous three-video component, `src/lib/social-videos.ts`, and `/api/videos/[id]` remain as legacy code; the homepage no longer renders those cards. Their earlier [video integration checks](docs/video-integration-verification.md) are historical.

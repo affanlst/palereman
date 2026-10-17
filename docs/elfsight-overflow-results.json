@@ -1,0 +1,65 @@
+{
+  "baseline": {
+    "viewport": 390,
+    "document": 522,
+    "providerWidth": 480
+  },
+  "viewports": [
+    {
+      "viewport": 320,
+      "document": 320,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible",
+      "providerWidth": 272
+    },
+    {
+      "viewport": 360,
+      "document": 360,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible",
+      "providerWidth": 312
+    },
+    {
+      "viewport": 390,
+      "document": 390,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible",
+      "providerWidth": 342
+    },
+    {
+      "viewport": 412,
+      "document": 412,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible",
+      "providerWidth": 364
+    },
+    {
+      "viewport": 430,
+      "document": 430,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible",
+      "providerWidth": 382
+    },
+    {
+      "viewport": 768,
+      "document": 768,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible",
+      "providerWidth": 720
+    },
+    {
+      "viewport": 1440,
+      "document": 1440,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible",
+      "providerWidth": 1280
+    }
+  ],
+  "checks": [
+    "Feed grows vertically when a caption expands; no fixed-height cropping",
+    "Native photo gallery remains scrollable without moving the page horizontally",
+    "Direct iframe with fixed width and min-width is constrained to the feed",
+    "No body/html overflow hiding; all containment rules scoped to the social feed"
+  ],
+  "pageErrors": []
+}

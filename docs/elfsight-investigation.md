@@ -2,6 +2,23 @@
 
 17 Oktober 2026. Widget milik pengguna: `f1b94c89-8127-4922-8666-ab81c060cd92`. Instagram dan TikTok yang diminta sama-sama `palereman.png`.
 
+## Perbaikan overflow mobile setelah widget dimuat
+
+Pengguna melaporkan bahwa feed live sudah tampil, tetapi membuat halaman dapat bergeser horizontal. Pemeriksaan sebelumnya hanya membuktikan fallback dan fixture sederhana, sehingga tidak mencakup root provider yang melebar setelah mount.
+
+Reproduksi layout yang sengaja memakai root `width: 100vw; min-width: 480px` dan tombol panah di luar tepi membuat lebar dokumen 522 px pada viewport 390 px sebelum perbaikan. Ini fixture regresi, bukan hasil pembacaan DOM Elfsight asli.
+
+Wrapper feed kini memiliki containment ukuran inline, batas overflow horizontal lokal, serta gutter untuk tombol carousel. Lebar maksimum dan minimum root publik serta root tingkat pertama dibatasi terhadap kolom, termasuk ketika provider mengubah inline style sesudah load. Tidak ada aturan overflow tersembunyi pada body/html, perubahan tinggi tetap mengikuti konten, dan layout internal track tidak dipaksa menjadi selebar halaman.
+
+- PASS: lint, TypeScript, build produksi, dan `git diff --check`.
+- PASS: pada 320, 360, 390, 412, 430, 768, 1440 px, lebar dokumen sama dengan viewport sebelum dan sesudah mount fixture.
+- PASS: root yang berubah ke 1200 px, elemen turunan selebar 2000 px, negative margin carousel, dan iframe dengan fixed/min-width tidak menambah lebar halaman.
+- PASS: kedua tombol carousel di gutter berada di dalam viewport dan dapat diklik; caption panjang membuat tinggi feed bertambah; galeri foto tetap dapat bergeser secara lokal.
+- PASS: tidak ada JavaScript page error aplikasi; overflow-x body/html tetap visible, bukan dipakai untuk menyembunyikan masalah global.
+- Batas: pada pemeriksaan ulang, runtime Elfsight tetap ditolak proxy cloud dengan CONNECT 403. Perbaikan diuji terhadap reproduksi layout yang gagal sebelum perubahan; tampilan posting asli dan seluruh kontrol provider tetap perlu dikonfirmasi pada deployment publik.
+
+[Hasil regresi overflow](elfsight-overflow-results.json). SEO tetap ditunda sesuai arahan pengguna.
+
 ## Yang benar-benar dapat diperiksa
 
 Snippet pengguna memasang `https://elfsightcdn.com/platform.js` dan sebuah container berkelas `elfsight-app-f1b94c89-8127-4922-8666-ab81c060cd92` dengan atribut lazy. Username, daftar unggahan, dan kredensial tidak ada pada snippet. Karena itu, memasang kode ini tidak sekaligus mengubah sumber akun di dashboard Elfsight.
@@ -24,7 +41,7 @@ Jika membuat pengganti mandiri, lapisan tampilan saja cukup untuk merender dafta
 - Tiga kartu video lama tidak lagi dirender. Anchor `#video` dipertahankan agar tautan lama tetap berlaku; nama navigasinya menjadi Sosial.
 - Status lokal menangani pemuatan, kegagalan script, serta pemuatan yang lebih lama dari 15 detik setelah bagian mendekati viewport. Output provider tetap boleh muncul setelah timeout, tanpa menghapus container. Pendeteksi output hanya menandakan adanya DOM provider; tidak menyatakan bahwa API atau posting live telah terverifikasi.
 - Tautan profil Instagram dan TikTok selalu tersedia. Tombol “Muat ulang halaman” memiliki aksi reload yang sesuai namanya.
-- Tidak ada override terhadap kelas/style internal Elfsight, penghilangan atribusi, atau salinan script provider. Data dan tampilan feed aktual tetap dikelola oleh widget Elfsight.
+- Batas ukuran root ditetapkan melalui wrapper lokal dan elemen tingkat pertama, tanpa bergantung pada nama kelas internal provider. Tidak ada penghilangan atribusi atau salinan script provider; data, track carousel, dan isi feed tetap dikelola Elfsight.
 - Komponen serta API video lama disimpan sebagai implementasi sebelumnya; tidak dipakai oleh homepage.
 
 ## Hasil pemeriksaan

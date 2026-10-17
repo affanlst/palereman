@@ -51,7 +51,7 @@ export function SocialFeed() {
     <div className="social-feed">
       <Script id="elfsight-platform" src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" onError={() => setState("failed")} />
       <div className={`social-feed-host social-feed-host-${state}`}>
-        <div ref={host} className={`elfsight-app-${widgetId}`} data-elfsight-app-lazy="" />
+        <div ref={host} className={`elfsight-app-${widgetId} social-feed-mount`} data-elfsight-app-lazy="" />
       </div>
       {state !== "embedded" && <div className="social-feed-status" role="status">
         <p>{state === "failed" ? "Feed belum dapat dimuat. Lihat unggahan melalui profil kami." : state === "slow" ? "Feed membutuhkan waktu lebih lama. Anda tetap dapat membuka profil kami." : "Memuat unggahan Palereman…"}</p>
