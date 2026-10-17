@@ -1,5 +1,17 @@
 # Remake Palereman, 17 Oktober 2026
 
+## Pembaruan logo gunungan
+
+Logo navbar dan footer sekarang memakai `gunungan-palereman.png`, aset yang sama pada bagian “Pelan sedikit. Cerita lebih lama.” File gambar asli tidak diubah. Nama Palereman tetap menjadi identitas teks di navbar; link logo kembali ke beranda.
+
+- PASS: lint tanpa warning, TypeScript, build produksi, dan `git diff --check`.
+- PASS: pada 320, 390, 640, 768, 1024, 1440 px, logo berhasil dimuat, tidak bertabrakan dengan navigasi, dan tidak menimbulkan overflow.
+- PASS: link brand pada header dan footer menuju beranda; menu mobile tetap terbuka dengan Enter dan tertutup dengan Escape; tidak ada JavaScript page error.
+- PASS: metadata browser memuat `/icon` dengan MIME `image/png`, ukuran deklarasi dan PNG aktual sama-sama 64 × 64, HTTP 200, ukuran respons 4.177 byte. Ikon dihasilkan saat build dari aset gunungan asli, tanpa dependensi tambahan.
+- PASS: identitas visual, kontras teks/fokus, serta informasi bisnis mengikuti Delivery Gate di bawah. Logo dekoratif memakai alt kosong dan label link beranda tetap tersedia untuk pembaca layar. Artwork, pola batik, dan bagian suasana tetap konsisten dengan logo yang dipilih pengguna.
+
+[Navbar desktop](screenshots/palereman-logo-desktop.png) · [Navbar mobile](screenshots/palereman-logo-mobile.png). Screenshot remake penuh di bawah merekam versi sebelum penambahan logo.
+
 ## Hasil yang dijalankan
 
 - `npm run lint`, `npm run typecheck`, `npm run build`: exit 0. Server produksi berhasil dijalankan ulang dengan build terbaru.

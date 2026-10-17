@@ -43,3 +43,5 @@ The visit section contains a lazy Google Maps iframe and an always-visible direc
 ## Review
 
 Current website screenshots: [desktop](docs/screenshots/palereman-remake-desktop.webp), [mobile](docs/screenshots/palereman-remake-mobile.webp). These are browser captures of the implementation. [Remake verification](docs/remake-verification.md) records executed checks and remaining media limitations. Earlier screenshots and verification notes are retained as history.
+
+The navbar, footer and browser tab now use the original gunungan from the Suasana section. Updated navbar captures: [desktop](docs/screenshots/palereman-logo-desktop.png), [mobile](docs/screenshots/palereman-logo-mobile.png). `src/app/icon.tsx` renders a 64 × 64 PNG tab icon from the same original asset at build time.

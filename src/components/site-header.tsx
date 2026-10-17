@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BrandMark } from "@/components/brand-mark";
 import { profile } from "@/lib/profile";
 import { useEffect, useRef, useState } from "react";
 
@@ -53,7 +54,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="shell header-inner">
-        <Link href="/#beranda" className="wordmark" aria-label="Palereman, beranda"><span>Palereman<span className="wordmark-dot">.</span></span><small>Coffee &amp; View</small></Link>
+        <Link href="/#beranda" className="wordmark" aria-label="Palereman, beranda"><BrandMark priority /><span className="wordmark-copy"><span>Palereman<span className="wordmark-dot">.</span></span><small>Coffee &amp; View</small></span></Link>
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {links.map(({ id, label }) => <Link key={id} href={`/#${id}`} aria-current={active === id ? "location" : undefined}>{label}</Link>)}
         </nav>

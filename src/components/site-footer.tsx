@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandMark } from "@/components/brand-mark";
 import { Icon } from "@/components/icon";
 import { profile } from "@/lib/profile";
 
@@ -7,7 +8,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-statement" aria-hidden="true">Palereman<span>.</span></div>
       <div className="shell footer-inner">
-        <div className="footer-identity"><Link href="/#beranda" className="footer-brand">Palereman Coffee &amp; View</Link><p>Singosaren, Ponorogo · Monggo, pinarak.</p></div>
+        <div className="footer-identity"><Link href="/#beranda" className="footer-brand"><BrandMark /><span>Palereman Coffee &amp; View</span></Link><p>Singosaren, Ponorogo · Monggo, pinarak.</p></div>
         <nav aria-label="Navigasi footer">
           <Link href="/#tentang">Tentang</Link>
           <Link href="/#menu">Menu</Link>
