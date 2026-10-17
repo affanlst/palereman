@@ -1,8 +1,8 @@
 # Palereman Coffee and View
 
-Next.js 16, React and TypeScript single page website. The active specification is [PRD 2.0](docs/PRD-Palereman-v2-approved.md); the [approved design](docs/design/approved-desktop.webp) and [design direction](docs/design-direction-v3.md) document the user's redesign approval.
+Next.js 16, React and TypeScript single page website. Business information follows [PRD 2.0](docs/PRD-Palereman-v2-approved.md). The current [modern Jawa design direction](docs/design-direction-v4.md) implements the user's October 17 remake request and supersedes the older cream mural design.
 
-The site uses warm cream, locally hosted Newsreader and Source Sans 3, and a continuous Javanese mural from the hero through the footer. Suasana has its image on the left, while Menu has its image on the right. Shared containers align header, sections and footer. Mobile has a native collapsible menu and a keyboard-scrollable video rail. The mural remains static, and reduced motion disables smooth scrolling and transitions.
+The site pairs forest green, cream and copper with a fixed-ratio wayang illustration and crisp vector batik inspired by kawung. Locally hosted Newsreader and Source Sans 3 provide editorial headings and readable body text. Menu photography comes from the supplied Palereman menu. Mobile has a native collapsible menu and a keyboard-scrollable video rail. Reduced motion disables smooth scrolling and transitions.
 
 ## Develop
 
@@ -32,9 +32,9 @@ Business information is configured in `src/lib/profile.ts`. The address and Maps
 
 Both menu buttons open the same Google Drive URL from that configuration in a new tab. `/menu`, `/suasana` and `/kunjungi` redirect to their corresponding homepage anchors. There is no local menu PDF or full menu catalogue.
 
-The Nasi Bakar photograph and official gunungan were extracted from the supplied menu. The continuous mural is original generated decoration made for the user-approved design; it is not an official historical character sheet or a licensed stock image. Font license files are in `public/fonts`. See [asset notes](docs/design/README.md).
+The Nasi Bakar and Kopi Rempah photographs and official gunungan were extracted from the supplied menu. The new wayang artwork is generated decorative illustration, not an official logo or historical character identification. The old mural remains an archived asset and is no longer rendered. Font license files are in `public/fonts`. See [asset notes](docs/design/README.md).
 
-Venue photo files are still missing, so Hero and Suasana use explicit photo placeholders. The user supplied two TikTok short links and one Instagram Reel, now configured in `src/lib/social-videos.ts`. All three cards have working play controls and source links. Since cover images have not been supplied, the cards use neutral platform labels rather than invented thumbnails. The component loads one official player at a time on request, with loading, failure/retry and close controls.
+Venue photo files are still missing. Hero uses decorative wayang art; Suasana uses the official gunungan with a link to the venue's Instagram. The user supplied two TikTok short links and one Instagram Reel, configured in `src/lib/social-videos.ts`. All three cards have working play controls and source links. Since cover images have not been supplied, the cards use platform labels and decorative batik rather than invented thumbnails. The component loads one official player at a time on request, with loading, failure/retry and close controls.
 
 Instagram has a direct embed URL. TikTok short links are resolved on demand by `/api/videos/[id]`, which follows only HTTPS redirects on an explicit TikTok hostname allowlist. It accepts configured video IDs only, with an eight-second resolution deadline and a five-redirect limit. No HTML/video scraping is used. The production Node.js server must be able to reach TikTok to resolve the short links; if that request or a platform player fails, the source link remains available. Full canonical TikTok URLs can replace short links in the configuration later to eliminate the resolution step. See [video integration checks](docs/video-integration-verification.md) for actual versus simulated test coverage.
 
@@ -42,4 +42,4 @@ The visit section contains a lazy Google Maps iframe and an always-visible direc
 
 ## Review
 
-Current website screenshots: [desktop](docs/screenshots/palereman-desktop.png), [mobile](docs/screenshots/palereman-mobile.png). These are browser captures of the implementation, not generated mockups. [Verification notes](docs/redesign-verification.md) record executed checks and remaining media limitations.
+Current website screenshots: [desktop](docs/screenshots/palereman-remake-desktop.webp), [mobile](docs/screenshots/palereman-remake-mobile.webp). These are browser captures of the implementation. [Remake verification](docs/remake-verification.md) records executed checks and remaining media limitations. Earlier screenshots and verification notes are retained as history.

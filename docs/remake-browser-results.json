@@ -1,0 +1,241 @@
+{
+  "viewports": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "images": 5,
+      "broken": 0,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "images": 5,
+      "broken": 0,
+      "overflow": []
+    },
+    {
+      "width": 640,
+      "scrollWidth": 640,
+      "images": 5,
+      "broken": 0,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "images": 5,
+      "broken": 0,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "images": 5,
+      "broken": 0,
+      "overflow": []
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "images": 5,
+      "broken": 0,
+      "overflow": []
+    }
+  ],
+  "links": [
+    {
+      "href": "#konten",
+      "target": "",
+      "text": "Lewati ke konten"
+    },
+    {
+      "href": "/#beranda",
+      "target": "",
+      "text": "Palereman.Coffee & View"
+    },
+    {
+      "href": "/#tentang",
+      "target": "",
+      "text": "Tentang"
+    },
+    {
+      "href": "/#menu",
+      "target": "",
+      "text": "Menu"
+    },
+    {
+      "href": "/#suasana",
+      "target": "",
+      "text": "Suasana"
+    },
+    {
+      "href": "/#video",
+      "target": "",
+      "text": "Video"
+    },
+    {
+      "href": "/#kunjungi",
+      "target": "",
+      "text": "Kunjungi"
+    },
+    {
+      "href": "https://wa.me/6285726741940",
+      "target": "_blank",
+      "text": "Monggo, mampir (WhatsApp, tab baru)"
+    },
+    {
+      "href": "https://drive.google.com/file/d/1L7ihFNGiLOhXX5wK7XbqEQ8DGiBHlEjS/view",
+      "target": "_blank",
+      "text": "Lihat buku menu  (Google Drive, tab baru)"
+    },
+    {
+      "href": "#kunjungi",
+      "target": "",
+      "text": "Mampir ke Palereman"
+    },
+    {
+      "href": "#suasana",
+      "target": "",
+      "text": "Kenali suasananya"
+    },
+    {
+      "href": "https://drive.google.com/file/d/1L7ihFNGiLOhXX5wK7XbqEQ8DGiBHlEjS/view",
+      "target": "_blank",
+      "text": "Buka menu lengkap  (Google Drive, tab baru)"
+    },
+    {
+      "href": "https://drive.google.com/file/d/1L7ihFNGiLOhXX5wK7XbqEQ8DGiBHlEjS/view",
+      "target": "_blank",
+      "text": "Temukan pilihanmu di buku menu (tab baru)"
+    },
+    {
+      "href": "https://www.instagram.com/palereman.png/",
+      "target": "_blank",
+      "text": "Lihat tempatnya di Instagram  (tab baru)"
+    },
+    {
+      "href": "https://vt.tiktok.com/ZSg8Rnhj3/",
+      "target": "_blank",
+      "text": "Tonton di TikTok (tab baru)"
+    },
+    {
+      "href": "https://vt.tiktok.com/ZSg88xVLX/",
+      "target": "_blank",
+      "text": "Tonton di TikTok (tab baru)"
+    },
+    {
+      "href": "https://www.instagram.com/reel/DeVtcAhTdTY/",
+      "target": "_blank",
+      "text": "Tonton di Instagram (tab baru)"
+    },
+    {
+      "href": "https://share.google/8YMx2kgAo053VxVOL",
+      "target": "_blank",
+      "text": "Petunjuk ke Palereman  (Google Maps, tab baru)"
+    },
+    {
+      "href": "tel:+6285726741940",
+      "target": "",
+      "text": "0857-2674-1940"
+    },
+    {
+      "href": "https://wa.me/6285726741940",
+      "target": "_blank",
+      "text": "Chat WhatsApp (tab baru)"
+    },
+    {
+      "href": "https://share.google/8YMx2kgAo053VxVOL",
+      "target": "_blank",
+      "text": "Buka di Google Maps (tab baru)"
+    },
+    {
+      "href": "/#beranda",
+      "target": "",
+      "text": "Palereman Coffee & View"
+    },
+    {
+      "href": "/#tentang",
+      "target": "",
+      "text": "Tentang"
+    },
+    {
+      "href": "/#menu",
+      "target": "",
+      "text": "Menu"
+    },
+    {
+      "href": "/#suasana",
+      "target": "",
+      "text": "Suasana"
+    },
+    {
+      "href": "/#video",
+      "target": "",
+      "text": "Video"
+    },
+    {
+      "href": "/#kunjungi",
+      "target": "",
+      "text": "Kunjungi"
+    },
+    {
+      "href": "https://www.instagram.com/palereman.png/",
+      "target": "_blank",
+      "text": "Instagram Palereman (tab baru)",
+      "verified": "isolated footer browser check"
+    },
+    {
+      "href": "https://wa.me/6285726741940",
+      "target": "_blank",
+      "text": "WhatsApp Palereman (tab baru)",
+      "verified": "isolated footer browser check"
+    }
+  ],
+  "interactions": [
+    "Mobile navigation: Enter opens, Escape closes, all 5 links navigate and move focus",
+    "All 3 video controls, simulated upstream failure, retry, one active player, correct Instagram source, close",
+    "Video rail End and Home scroll with keyboard; reduced motion respected",
+    "Skip link is first Tab stop; Enter focuses main",
+    "200% desktop zoom equivalent (1440 to 720 CSS pixels): no horizontal overflow"
+  ],
+  "contrast": [
+    {
+      "width": 320,
+      "checked": 93,
+      "lowest": 4.894745413532399,
+      "problems": []
+    },
+    {
+      "width": 390,
+      "checked": 93,
+      "lowest": 4.894745413532399,
+      "problems": []
+    },
+    {
+      "width": 640,
+      "checked": 93,
+      "lowest": 4.894745413532399,
+      "problems": []
+    },
+    {
+      "width": 768,
+      "checked": 97,
+      "lowest": 4.894745413532399,
+      "problems": []
+    },
+    {
+      "width": 1024,
+      "checked": 97,
+      "lowest": 4.894745413532399,
+      "problems": []
+    },
+    {
+      "width": 1440,
+      "checked": 98,
+      "lowest": 4.894745413532399,
+      "problems": []
+    }
+  ],
+  "errors": []
+}

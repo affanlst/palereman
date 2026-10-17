@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Icon } from "@/components/icon";
-import { MediaPlaceholder } from "@/components/media-placeholder";
 import { SocialVideos } from "@/components/social-videos";
 import { profile } from "@/lib/profile";
 
@@ -9,79 +8,63 @@ const newTab = { target: "_blank", rel: "noopener noreferrer" } as const;
 export default function Home() {
   return (
     <>
-      <section id="beranda" className="hero section shell" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <h1 id="hero-title">Palereman</h1>
-          <p className="hero-subtitle">Coffee and View</p>
-          <p className="hero-intro">Kopi, makanan, dan pemandangan<br className="desktop-break" /> di Singosaren, Ponorogo.</p>
-          <div className="hero-actions">
-            <a className="button" href={profile.menuDriveUrl} {...newTab}>Lihat Menu <Icon name="arrow" /><span className="sr-only"> (Google Drive, tab baru)</span></a>
-            <a className="text-link" href="#kunjungi">Petunjuk Arah</a>
+      <section id="beranda" className="hero" aria-labelledby="hero-title">
+        <div className="shell hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow"><span className="short-rule" />Singosaren, Ponorogo</p>
+            <h1 id="hero-title">Singgah sejenak.<br />Nikmati <em>rasanya.</em></h1>
+            <p className="hero-intro">Secangkir kopi, sepiring cerita, dan hangatnya Jawa.<br className="desktop-break" /> Selamat datang di Palereman Coffee and View.</p>
+            <div className="hero-actions">
+              <a className="button" href={profile.menuDriveUrl} {...newTab}>Lihat buku menu <Icon name="arrow" /><span className="sr-only"> (Google Drive, tab baru)</span></a>
+              <a className="quiet-link" href="#kunjungi">Mampir ke Palereman</a>
+            </div>
+            <div className="hero-footnote"><span>Coffee &amp; View</span><span>08.00–20.00 · Jumat tutup</span></div>
           </div>
+          <figure className="hero-art">
+            <Image src="/images/wayang-editorial.webp" alt="Ilustrasi dekoratif wayang kulit dengan detail tembaga di atas hijau hutan" fill priority sizes="(max-width: 700px) 100vw, 48vw" />
+            <figcaption><span>Berakar di Jawa.</span><span>Dinikmati hari ini.</span></figcaption>
+          </figure>
         </div>
-        <MediaPlaceholder label="Foto Palereman" className="hero-photo" />
+        <div className="heritage-band" aria-hidden="true"><span>Kopi &amp; cerita</span><span className="band-motif" /><span>Rasa &amp; budaya</span><span className="band-motif" /><span>Palereman, Ponorogo</span><span className="band-motif" /><span>Monggo, pinarak.</span></div>
       </section>
 
       <section id="tentang" className="about section shell" aria-labelledby="about-title">
-        <p className="section-label">Tentang kami</p>
-        <h2 id="about-title">Suasana ngopi khas<br className="desktop-break" /> orang Jawa.</h2>
-        <div className="about-copy">
-          <p>Palereman Coffee and View berada di Singosaren, Ponorogo. Tempat untuk menikmati kopi, makanan, dan pemandangan dengan suasana yang dekat dengan budaya Jawa.</p>
-          <p>Pilihan kami mencakup kopi, minuman segar, makanan, dan camilan. Lihat buku menu sebelum datang, lalu pilih yang ingin dinikmati di Palereman.</p>
+        <div className="section-kicker"><span>01 / Tentang Palereman</span><span className="hairline" /></div>
+        <div className="about-grid">
+          <h2 id="about-title">Ada waktu untuk pergi.<br />Ada tempat untuk <em>pulang.</em></h2>
+          <div className="about-copy"><p>Di Singosaren, Ponorogo, Palereman menjadi tempat singgah untuk kopi, makanan, dan pemandangan.</p><p>Nuansa Jawa hadir menemani waktu yang sederhana: duduk, berbagi cerita, lalu menikmati pesanan tanpa terburu-buru.</p><a className="text-link" href="#suasana">Kenali suasananya</a></div>
+        </div>
+        <div className="about-signature"><Image src="/images/gunungan-palereman.png" alt="" width={32} height={44} /><p>Monggo, pinarak. <span>Silakan, singgah dulu.</span></p></div>
+      </section>
+
+      <section id="menu" className="menu-section" aria-labelledby="menu-title">
+        <div className="shell section">
+          <div className="section-kicker"><span>02 / Dari dapur &amp; seduhan</span><span className="hairline" /></div>
+          <div className="menu-heading"><h2 id="menu-title">Rasa yang bikin<br />ingin <em>kembali.</em></h2><div><p>Kopi, makanan, dan teman ngobrol.<br />Pilih yang pas untuk waktu singgahmu.</p><a className="text-link" href={profile.menuDriveUrl} {...newTab}>Buka menu lengkap <Icon name="arrow" /><span className="sr-only"> (Google Drive, tab baru)</span></a></div></div>
+          <div className="menu-editorial">
+            <figure className="dish-main"><div className="dish-image"><Image src="/images/nasi-bakar-palereman.webp" alt="Nasi Bakar Palereman disajikan di atas daun pisang" width={518} height={242} sizes="(max-width: 700px) 90vw, 48vw" /><span className="dish-number" aria-hidden="true">01</span></div><figcaption><h3>Nasi Bakar Palereman</h3><span>Dari dapur kami</span></figcaption></figure>
+            <div className="menu-side"><figure className="dish-drink"><div className="drink-image"><Image src="/images/kopi-rempah.png" alt="Kopi Rempah dengan rempah pendamping" width={151} height={166} sizes="151px" /></div><figcaption><span className="dish-number" aria-hidden="true">02</span><h3>Kopi Rempah</h3><p>Teman untuk duduk lebih lama.</p></figcaption></figure><div className="menu-note"><span>Selera boleh beda.<br />Mejanya tetap sama.</span><a href={profile.menuDriveUrl} {...newTab}>Temukan pilihanmu di buku menu<span className="sr-only"> (tab baru)</span></a></div></div>
+          </div>
+          <p className="menu-source">Foto hidangan dari menu Palereman. Pilihan dan harga terbaru tersedia di buku menu.</p>
         </div>
       </section>
 
-      <section id="suasana" className="atmosphere section shell split-section" aria-labelledby="atmosphere-title">
-        <MediaPlaceholder label="Foto suasana tempat" className="atmosphere-photo" />
-        <div className="section-copy">
-          <p className="section-label">Suasana</p>
-          <h2 id="atmosphere-title">Lihat tempatnya.</h2>
-          <p>Duduk sambil menikmati pemandangan di Singosaren. Kenali sudut Palereman dan rencanakan waktu untuk mampir.</p>
-          <a className="text-link" href={profile.instagramUrl} {...newTab}>Lihat suasana di Instagram<span className="sr-only"> (tab baru)</span></a>
-        </div>
-      </section>
-
-      <section id="menu" className="menu-section section shell split-section" aria-labelledby="menu-title">
-        <div className="section-copy">
-          <p className="section-label">Menu</p>
-          <h2 id="menu-title">Mau pesan apa?</h2>
-          <p>Dari kopi sampai makanan dan camilan, lihat pilihan untuk menemani waktu di Palereman.</p>
-          <a className="button" href={profile.menuDriveUrl} {...newTab}>Buka Buku Menu <Icon name="arrow" /><span className="sr-only"> (Google Drive, tab baru)</span></a>
-        </div>
-        <figure className="menu-photo">
-          <Image src="/images/nasi-bakar-palereman.webp" alt="Nasi Bakar Palereman dengan bungkus daun pisang" width={518} height={242} sizes="(max-width: 700px) 90vw, 520px" />
-          <figcaption>Nasi Bakar Palereman</figcaption>
-        </figure>
+      <section id="suasana" className="atmosphere section shell" aria-labelledby="atmosphere-title">
+        <div className="atmosphere-art" aria-hidden="true"><div className="batik-panel" /><Image src="/images/gunungan-palereman.png" alt="" width={260} height={358} /><span>Palereman / Coffee and View</span></div>
+        <div className="section-copy"><p className="section-kicker">03 / Suasana</p><h2 id="atmosphere-title">Pelan sedikit.<br /><em>Cerita lebih lama.</em></h2><p>Sebuah jeda di Singosaren. Kopi di meja, pemandangan di depan mata, dan waktu untuk orang-orang terdekat.</p><a className="text-link" href={profile.instagramUrl} {...newTab}>Lihat tempatnya di Instagram <Icon name="arrow" /><span className="sr-only"> (tab baru)</span></a><p className="art-note">Ornamen gunungan Palereman. Foto tempat dapat dilihat di Instagram.</p></div>
       </section>
 
       <section id="video" className="video-section section shell" aria-labelledby="video-title">
-        <div className="video-heading">
-          <p className="section-label">Video</p>
-          <h2 id="video-title">Cerita dari Palereman.</h2>
-          <p>Lihat suasana dan momen di Palereman.</p>
-        </div>
+        <div className="section-kicker"><span>04 / Cerita yang bergerak</span><span className="hairline" /></div>
+        <div className="video-heading"><h2 id="video-title">Sepotong <em>Palereman.</em></h2><p>Lihat momen dan suasana<br />melalui video pilihan kami.</p></div>
         <SocialVideos />
       </section>
 
-      <section id="kunjungi" className="visit section shell" aria-labelledby="visit-title">
-        <p className="section-label">Kunjungi</p>
-        <h2 id="visit-title">Sampai jumpa di Palereman.</h2>
-        <div className="visit-grid">
-          <div className="visit-copy">
-            <p>Temukan kami di Singosaren, Ponorogo.<br />Mampir untuk kopi dan pemandangannya.</p>
-            <dl className="visit-details">
-              <div><dt><Icon name="pin" /><span className="sr-only">Alamat</span></dt><dd><address>{profile.address}</address></dd></div>
-              <div><dt><Icon name="clock" /><span className="sr-only">Jam buka</span></dt><dd>08.00–20.00<span className="detail-note">Jumat tutup</span></dd></div>
-              <div><dt><Icon name="phone" /><span className="sr-only">Telepon</span></dt><dd><a className="contact-link" href={profile.phoneHref}>{profile.phoneDisplay}</a></dd></div>
-            </dl>
-            <a className="text-link" href={profile.whatsappUrl} {...newTab}>Hubungi via WhatsApp<span className="sr-only"> (tab baru)</span></a>
-          </div>
-          <div className="map-card">
-            <iframe title="Peta Palereman Coffee and View di Ponorogo" src="https://www.google.com/maps?q=Palereman%20Coffee%20and%20View%20Ponorogo&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-            <div className="map-caption"><p>Jika peta tidak tampil, buka petunjuk arah.</p><a className="text-link" href={profile.mapsUrl} {...newTab}>Buka Google Maps <Icon name="arrow" /><span className="sr-only"> (tab baru)</span></a></div>
-          </div>
-        </div>
-      </section>
+      <section id="kunjungi" className="visit" aria-labelledby="visit-title"><div className="shell section">
+        <div className="section-kicker"><span>05 / Sampai bertemu</span><span className="hairline" /></div>
+        <div className="visit-grid"><div className="visit-copy"><h2 id="visit-title">Meja berikutnya,<br /><em>untuk kamu.</em></h2><p>Mampir untuk kopi dan pemandangannya.<br />Kami tunggu di Singosaren, Ponorogo.</p><a className="button" href={profile.mapsUrl} {...newTab}>Petunjuk ke Palereman <Icon name="arrow" /><span className="sr-only"> (Google Maps, tab baru)</span></a></div><div className="visit-info"><div><span className="info-label">Temukan kami</span><address>{profile.address}</address></div><div className="info-row"><div><span className="info-label">Waktu singgah</span><p>08.00–20.00</p><span>Jumat tutup</span></div><div><span className="info-label">Ada yang ditanyakan?</span><a className="contact-link" href={profile.phoneHref}>{profile.phoneDisplay}</a><a className="text-link" href={profile.whatsappUrl} {...newTab}>Chat WhatsApp<span className="sr-only"> (tab baru)</span></a></div></div></div></div>
+        <div className="map-card"><iframe title="Peta Palereman Coffee and View di Ponorogo" src="https://www.google.com/maps?q=Palereman%20Coffee%20and%20View%20Ponorogo&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /><p>Peta tidak tampil? <a href={profile.mapsUrl} {...newTab}>Buka di Google Maps<span className="sr-only"> (tab baru)</span></a></p></div>
+      </div></section>
     </>
   );
 }

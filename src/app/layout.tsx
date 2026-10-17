@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { ContinuousMural } from "@/components/continuous-mural";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
@@ -29,7 +28,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="id">
       <body className={`${newsreader.variable} ${sourceSans.variable}`}>
         <div className="site-canvas">
-          <ContinuousMural />
           <a className="skip-link" href="#konten">Lewati ke konten</a>
           <SiteHeader />
           <main id="konten" tabIndex={-1}>{children}</main>

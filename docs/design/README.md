@@ -1,5 +1,14 @@
 # Aset desain Palereman
 
+## Remake modern Jawa, 17 Oktober 2026
+
+- `public/images/wayang-editorial.webp`: ilustrasi wayang dekoratif generatif 1024 × 1536 dari arahan modern, batik, dan wayang pengguna. Ditampilkan sesuai rasio; bukan foto venue, logo resmi, atau klaim identitas tokoh sejarah.
+- `public/images/kawung.svg`: motif vektor terinspirasi kawung, dibuat untuk identitas batik yang diminta. Tajam pada setiap ukuran; tidak menggunakan raster yang diregangkan.
+- Foto Kopi Rempah memakai aset menu yang sudah tersedia. Foto venue tetap tidak direka. Bagian suasana memakai gunungan resmi serta tautan Instagram.
+- Arah aktif: [v4](../design-direction-v4.md). Catatan mural di bawah adalah arsip desain sebelumnya, tidak lagi dirender.
+
+## Arsip desain krem
+
 - `approved-desktop.webp`: mockup terakhir yang disetujui pengguna, termasuk pertukaran kolom pada bagian Suasana. Gambar ini merupakan acuan visual, bukan screenshot implementasi atau sumber informasi operasional.
 - `public/images/palereman-mural.webp`: ilustrasi latar yang dibuat khusus dari arah visual yang disetujui. Hanya mural dekoratif, tanpa teks, foto, kartu atau tombol dari mockup. Bukan aset logo resmi atau klaim ketepatan sejarah tokoh wayang.
 - Pada desktop mural menjadi satu komposisi sepanjang dokumen. Pada mobile, bagian atas, tengah dan bawah komposisi yang sama ditempatkan pada satu lapisan halaman; garis penghubung menyesuaikan panjang isi agar tokoh tidak diregangkan. Mask fade hanya menyamarkan pertemuan potongan responsif, bukan gradient dekoratif. Tidak ada reset latar pada batas section atau tile pola berulang.

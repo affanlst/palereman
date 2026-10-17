@@ -93,7 +93,7 @@ export function SocialVideos() {
         <p className="social-status" role="status">{status === "loading" ? "Memuat pemutar video…" : status === "failed" ? "Buka tautan sumber untuk menonton videonya." : "Jika video tidak dapat diputar, gunakan tautan sumber di bawah."}</p>
         <button className="text-link player-close" onClick={closePlayer}>Tutup pemutar</button>
       </> : <button type="button" className={`social-cover${video.cover ? "" : " social-cover-plain"}`} onClick={() => play(video)} aria-label={`Putar ${video.title}`}>
-        {video.cover ? <><Image src={video.cover} alt="" fill sizes="(max-width: 700px) 85vw, 360px" /><span className="play-label"><span aria-hidden="true">▷</span> Putar video</span></> : <><span className="cover-platform">{video.platform}</span><span className="cover-action"><Icon name="video" />Putar video</span><span className="cover-title">{video.title}</span></>}
+        {video.cover ? <><Image src={video.cover} alt="" fill sizes="(max-width: 700px) 85vw, 360px" /><span className="play-label"><span aria-hidden="true">▷</span> Putar video</span></> : <><span className="cover-platform">{video.platform}</span><span className="cover-action"><Icon name="play" />Putar video</span><span className="cover-title">{video.title}</span></>}
       </button>}
       <div className="social-video-meta"><h3>{video.title}</h3><span>{video.platform}</span><a className="text-link" href={video.url} target="_blank" rel="noopener noreferrer">Tonton di {video.platform}<span className="sr-only"> (tab baru)</span></a></div>
     </article>;

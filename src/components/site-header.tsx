@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { profile } from "@/lib/profile";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
   { id: "tentang", label: "Tentang" },
-  { id: "suasana", label: "Suasana" },
   { id: "menu", label: "Menu" },
+  { id: "suasana", label: "Suasana" },
   { id: "video", label: "Video" },
   { id: "kunjungi", label: "Kunjungi" },
 ];
@@ -52,10 +53,11 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="shell header-inner">
-        <Link href="/#beranda" className="wordmark" aria-label="Palereman, beranda">Palereman</Link>
+        <Link href="/#beranda" className="wordmark" aria-label="Palereman, beranda"><span>Palereman<span className="wordmark-dot">.</span></span><small>Coffee &amp; View</small></Link>
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {links.map(({ id, label }) => <Link key={id} href={`/#${id}`} aria-current={active === id ? "location" : undefined}>{label}</Link>)}
         </nav>
+        <a className="header-contact" href={profile.whatsappUrl} target="_blank" rel="noopener noreferrer">Monggo, mampir<span className="sr-only"> (WhatsApp, tab baru)</span></a>
         <details className="mobile-nav" ref={mobileNav} onKeyDown={(event) => {
           if (event.key === "Escape" && mobileNav.current?.open) {
             mobileNav.current.open = false;
