@@ -2,7 +2,10 @@
 
 ## Pembaruan logo gunungan
 
-Logo navbar dan footer sekarang memakai `gunungan-palereman.png`, aset yang sama pada bagian “Pelan sedikit. Cerita lebih lama.” File gambar asli tidak diubah. Nama Palereman tetap menjadi identitas teks di navbar; link logo kembali ke beranda.
+Logo navbar dan footer sekarang memakai `gunungan-palereman-transparent.png`, versi transparan yang direstorasi dari aset pada bagian “Pelan sedikit. Cerita lebih lama.” File gambar asli tidak diubah. Nama Palereman tetap menjadi identitas teks di navbar; link logo kembali ke beranda.
+
+- PASS: sumber transparan 1068 × 1472 px, lebih besar dari sumber awal 657 × 905 px. Pemeriksaan alpha memastikan transparansi tersedia; latar pembungkus CSS transparan dan blend gambar `normal`, tanpa kotak krem.
+- PASS: Chromium pada DPR 2 memuat gambar logo dengan alpha dan lebar aktual 96 px, mencukupi kebutuhan tampilan 44 CSS px pada Retina. Screenshot navbar desktop/mobile terbaru diambil pada DPR 2. Detail yang direstorasi merupakan hasil pengolahan gambar, bukan klaim pemulihan sumber vektor asli.
 
 - PASS: lint tanpa warning, TypeScript, build produksi, dan `git diff --check`.
 - PASS: pada 320, 390, 640, 768, 1024, 1440 px, logo berhasil dimuat, tidak bertabrakan dengan navigasi, dan tidak menimbulkan overflow.
