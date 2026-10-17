@@ -1,0 +1,210 @@
+{
+  "scope": "Local production build, simulated mobile; external services blocked. All runs retained including the initial post-change CLS outlier.",
+  "runs": [
+    {
+      "source": "lighthouse-mobile.json",
+      "fetchTime": "2026-10-17T11:40:34.213Z",
+      "lighthouseVersion": "13.5.0",
+      "scores": {
+        "performance": 92,
+        "accessibility": 100,
+        "best-practices": 96,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 1387.9385,
+          "displayValue": "1.4 s"
+        },
+        "largest-contentful-paint": {
+          "numericValue": 3293.8462499999996,
+          "displayValue": "3.3 s"
+        },
+        "total-blocking-time": {
+          "numericValue": 74.5,
+          "displayValue": "70 ms"
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "displayValue": "0"
+        }
+      },
+      "imageDelivery": "Est savings of 102 KiB",
+      "lcpDiscoveryScore": 0,
+      "labelInNameScore": 0
+    },
+    {
+      "source": "lighthouse-mobile.json",
+      "fetchTime": "2026-10-17T14:56:02.220Z",
+      "lighthouseVersion": "13.5.0",
+      "scores": {
+        "performance": 82,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 771.0106000000001,
+          "displayValue": "0.8 s"
+        },
+        "largest-contentful-paint": {
+          "numericValue": 2881.5159000000003,
+          "displayValue": "2.9 s"
+        },
+        "total-blocking-time": {
+          "numericValue": 39.5,
+          "displayValue": "40 ms"
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0.2551640340218712,
+          "displayValue": "0.255"
+        }
+      },
+      "imageDelivery": "No items flagged",
+      "lcpDiscoveryScore": 1,
+      "labelInNameScore": 1
+    },
+    {
+      "source": "lighthouse-check.json",
+      "fetchTime": "2026-10-17T14:56:58.100Z",
+      "lighthouseVersion": "13.5.0",
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 758.3494000000001,
+          "displayValue": "0.8 s"
+        },
+        "largest-contentful-paint": {
+          "numericValue": 2787.5241,
+          "displayValue": "2.8 s"
+        },
+        "total-blocking-time": {
+          "numericValue": 43.5,
+          "displayValue": "40 ms"
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "displayValue": "0"
+        }
+      },
+      "imageDelivery": "No items flagged",
+      "lcpDiscoveryScore": 1,
+      "labelInNameScore": 1
+    },
+    {
+      "source": "lighthouse-final.json",
+      "fetchTime": "2026-10-17T14:57:43.806Z",
+      "lighthouseVersion": "13.5.0",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 762.2886000000001,
+          "displayValue": "0.8 s"
+        },
+        "largest-contentful-paint": {
+          "numericValue": 2487.2886000000003,
+          "displayValue": "2.5 s"
+        },
+        "total-blocking-time": {
+          "numericValue": 37,
+          "displayValue": "40 ms"
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "displayValue": "0"
+        }
+      },
+      "imageDelivery": "No items flagged",
+      "lcpDiscoveryScore": 1,
+      "labelInNameScore": 1
+    },
+    {
+      "source": "lighthouse-reserved-space.json",
+      "fetchTime": "2026-10-17T15:00:22.010Z",
+      "lighthouseVersion": "13.5.0",
+      "scores": {
+        "performance": 94,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "numericValue": 760.4824000000001,
+          "displayValue": "0.8 s"
+        },
+        "largest-contentful-paint": {
+          "numericValue": 3082.7236000000003,
+          "displayValue": "3.1 s"
+        },
+        "total-blocking-time": {
+          "numericValue": 46,
+          "displayValue": "50 ms"
+        },
+        "cumulative-layout-shift": {
+          "numericValue": 0,
+          "displayValue": "0"
+        }
+      },
+      "imageDelivery": "No items flagged",
+      "lcpDiscoveryScore": 1,
+      "labelInNameScore": 1
+    }
+  ],
+  "functional": {
+    "checkedAt": "2026-10-17T15:00:13.258Z",
+    "viewports": [
+      {
+        "width": 320,
+        "documentWidth": 320,
+        "elfsightDeferred": true,
+        "mapsOptIn": true,
+        "mapHeightStable": true,
+        "galleryKeyboardAndButtons": true,
+        "consoleErrors": []
+      },
+      {
+        "width": 390,
+        "documentWidth": 390,
+        "elfsightDeferred": true,
+        "mapsOptIn": true,
+        "mapHeightStable": true,
+        "galleryKeyboardAndButtons": true,
+        "consoleErrors": []
+      },
+      {
+        "width": 768,
+        "documentWidth": 768,
+        "elfsightDeferred": true,
+        "mapsOptIn": true,
+        "mapHeightStable": true,
+        "galleryKeyboardAndButtons": true,
+        "consoleErrors": []
+      },
+      {
+        "width": 1440,
+        "documentWidth": 1440,
+        "elfsightDeferred": true,
+        "mapsOptIn": true,
+        "mapHeightStable": true,
+        "galleryKeyboardAndButtons": true,
+        "consoleErrors": []
+      }
+    ],
+    "checks": [
+      "All 4 venue photos and business JSON-LD are server-rendered without JavaScript; Maps/social links remain available.",
+      "Blocked Elfsight shows both profile links and an error state without changing reserved feed height."
+    ]
+  }
+}

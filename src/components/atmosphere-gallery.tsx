@@ -15,19 +15,13 @@ export function AtmosphereGallery() {
   const rail = useRef<HTMLDivElement>(null);
   const activeIndex = useRef(0);
   const [index, setIndex] = useState(0);
-  const [visited, setVisited] = useState([0]);
   const [loaded, setLoaded] = useState<number[]>([]);
   const [failed, setFailed] = useState<number[]>([]);
-
-  function preparePhoto(next: number) {
-    setVisited((previous) => previous.includes(next) ? previous : [...previous, next]);
-  }
 
   function goTo(next: number) {
     const element = rail.current;
     if (!element) return;
     next = Math.max(0, Math.min(photos.length - 1, next));
-    preparePhoto(next);
     const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
     element.scrollTo({ left: next * element.clientWidth, behavior });
   }
@@ -38,7 +32,6 @@ export function AtmosphereGallery() {
     const next = Math.max(0, Math.min(photos.length - 1, Math.round(element.scrollLeft / element.clientWidth)));
     activeIndex.current = next;
     setIndex(next);
-    preparePhoto(next);
   }
 
   function handleKey(event: KeyboardEvent<HTMLDivElement>) {
@@ -61,24 +54,24 @@ export function AtmosphereGallery() {
   }, []);
 
   return (
-    <figure className="atmosphere-photo atmosphere-gallery" role="group" aria-roledescription="carousel" aria-label="Galeri suasana Palereman">
+    <div className="atmosphere-photo atmosphere-gallery" role="region" aria-roledescription="carousel" aria-label="Galeri suasana Palereman">
       <div className="gallery-frame">
         <div ref={rail} className="gallery-rail" tabIndex={0} role="group" aria-label="Foto suasana; gunakan tombol panah, Home, atau End untuk mengganti foto" onScroll={updatePosition} onKeyDown={handleKey}>
           {photos.map((photo, photoIndex) => <div className="gallery-slide" key={photo.src} role="group" aria-roledescription="slide" aria-label={`Foto ${photoIndex + 1} dari ${photos.length}`} aria-hidden={photoIndex !== index}>
-            {visited.includes(photoIndex) && <Image src={photo.src} alt={photo.alt} width={1280} height={959} sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1100px) 45vw, 590px" onLoad={() => setLoaded((previous) => previous.includes(photoIndex) ? previous : [...previous, photoIndex])} onError={() => setFailed((previous) => previous.includes(photoIndex) ? previous : [...previous, photoIndex])} />}
+            <Image src={photo.src} alt={photo.alt} width={1280} height={959} loading="lazy" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1100px) 45vw, 590px" onLoad={() => setLoaded((previous) => previous.includes(photoIndex) ? previous : [...previous, photoIndex])} onError={() => setFailed((previous) => previous.includes(photoIndex) ? previous : [...previous, photoIndex])} />
           </div>)}
         </div>
         {!loaded.includes(index) && <div className="gallery-message" role="status"><p>{failed.includes(index) ? "Foto belum dapat dimuat. Silakan pilih foto lain." : "Memuat foto…"}</p></div>}
         <span className="gallery-counter" role="status" aria-live="polite" aria-atomic="true">Foto {index + 1} / {photos.length}</span>
       </div>
-      <div className="gallery-controls" aria-label="Kontrol galeri">
+      <div className="gallery-controls" role="group" aria-label="Kontrol galeri">
         <button className="gallery-arrow" type="button" onClick={() => goTo(index - 1)} disabled={index === 0} aria-label="Foto sebelumnya"><Icon name="chevron-left" /></button>
         <div className="gallery-dots">
           {photos.map((photo, photoIndex) => <button className="gallery-dot" type="button" key={photo.src} onClick={() => goTo(photoIndex)} aria-label={`Tampilkan foto ${photoIndex + 1}`} aria-current={photoIndex === index ? "true" : undefined} />)}
         </div>
         <button className="gallery-arrow" type="button" onClick={() => goTo(index + 1)} disabled={index === photos.length - 1} aria-label="Foto berikutnya"><Icon name="chevron-right" /></button>
       </div>
-      <figcaption>Suasana di Palereman, Singosaren.</figcaption>
-    </figure>
+      <p className="gallery-caption">Suasana di Palereman, Singosaren.</p>
+    </div>
   );
 }

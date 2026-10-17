@@ -10,6 +10,7 @@ type FeedState = "loading" | "slow" | "failed" | "embedded";
 export function SocialFeed() {
   const host = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<FeedState>("loading");
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     const element = host.current;
@@ -33,6 +34,7 @@ export function SocialFeed() {
     // Elfsight's lazy widget may not render until this section enters the viewport.
     const visibility = new IntersectionObserver((entries) => {
       if (!entries.some((entry) => entry.isIntersecting)) return;
+      setEnabled(true);
       timer = setTimeout(() => setState((current) => current === "loading" ? "slow" : current), 15000);
       visibility.disconnect();
     }, { rootMargin: "200px" });
@@ -49,7 +51,7 @@ export function SocialFeed() {
 
   return (
     <div className="social-feed">
-      <Script id="elfsight-platform" src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" onError={() => setState("failed")} />
+      {enabled && <Script id="elfsight-platform" src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" onError={() => setState("failed")} />}
       <div className={`social-feed-host social-feed-host-${state}`}>
         <div ref={host} className={`elfsight-app-${widgetId} social-feed-mount`} data-elfsight-app-lazy="" />
       </div>

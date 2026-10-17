@@ -4,6 +4,7 @@ import { site, businessStructuredData } from "@/lib/site";
 import { Icon } from "@/components/icon";
 import { SocialFeed } from "@/components/social-feed";
 import { AtmosphereGallery } from "@/components/atmosphere-gallery";
+import { LocationMap } from "@/components/location-map";
 import { profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default function Home() {
             <div className="hero-footnote"><span>Coffee &amp; View</span><span>08.00–20.00 · Jumat tutup</span></div>
           </div>
           <figure className="hero-art">
-            <Image src="/images/wayang-editorial.webp" alt="Ilustrasi dekoratif wayang kulit dengan detail tembaga di atas hijau hutan" fill priority sizes="(max-width: 700px) 100vw, 48vw" />
+            <Image src="/images/wayang-editorial.webp" alt="Ilustrasi dekoratif wayang kulit dengan detail tembaga di atas hijau hutan" fill loading="eager" fetchPriority="high" quality={60} sizes="(max-width: 700px) calc(74.1vw - 58px), (max-width: 1100px) 40vw, 480px" />
             <figcaption><span>Berakar di Jawa.</span><span>Dinikmati hari ini.</span></figcaption>
           </figure>
         </div>
@@ -76,7 +77,7 @@ export default function Home() {
       <section id="kunjungi" className="visit" aria-labelledby="visit-title"><div className="shell section">
         <div className="section-kicker"><span>05 / Sampai bertemu</span><span className="hairline" /></div>
         <div className="visit-grid"><div className="visit-copy"><h2 id="visit-title">Meja berikutnya,<br /><em>untuk kamu.</em></h2><p>Mampir untuk kopi dan pemandangannya.<br />Kami tunggu di Singosaren, Ponorogo.</p><a className="button" href={profile.mapsUrl} {...newTab}>Petunjuk ke Palereman <Icon name="arrow" /><span className="sr-only"> (Google Maps, tab baru)</span></a></div><div className="visit-info"><div><span className="info-label">Temukan kami</span><address>{profile.address}</address></div><div className="info-row"><div><span className="info-label">Waktu singgah</span><p>08.00–20.00</p><span>Jumat tutup</span></div><div><span className="info-label">Ada yang ditanyakan?</span><a className="contact-link" href={profile.phoneHref}>{profile.phoneDisplay}</a><a className="text-link" href={profile.whatsappUrl} {...newTab}>Chat WhatsApp<span className="sr-only"> (tab baru)</span></a></div></div></div></div>
-        <div className="map-card"><iframe title="Peta Palereman Coffee and View di Ponorogo" src="https://www.google.com/maps?q=Palereman%20Coffee%20and%20View%20Ponorogo&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /><p>Peta tidak tampil? <a href={profile.mapsUrl} {...newTab}>Buka di Google Maps<span className="sr-only"> (tab baru)</span></a></p></div>
+        <LocationMap />
         <div className="visit-faq" aria-labelledby="faq-title">
           <h2 id="faq-title">Sebelum <em>mampir.</em></h2>
           <div>
