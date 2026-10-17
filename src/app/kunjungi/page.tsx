@@ -1,2 +1,2 @@
-import { redirect } from "next/navigation";
-export default function KunjungiRedirect() { redirect("/#kunjungi"); }
+import { permanentRedirect } from "next/navigation";
+export default function KunjungiRedirect() { permanentRedirect("/#kunjungi"); }

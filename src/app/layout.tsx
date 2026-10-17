@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const newsreader = localFont({
@@ -19,8 +20,23 @@ const sourceSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Palereman Coffee and View", template: "%s | Palereman" },
-  description: "Kenali Palereman Coffee and View di Singosaren, Ponorogo. Lihat menu, lokasi, dan jam buka dalam satu halaman.",
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: "%s | Palereman" },
+  description: site.description,
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    images: [{ url: site.image, width: 1280, height: 959, alt: "Pengunjung Palereman menikmati pemandangan sawah dan perbukitan di Ponorogo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+    images: [site.image],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

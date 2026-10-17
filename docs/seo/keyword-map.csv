@@ -1,0 +1,65 @@
+keyword,cluster,intent,priority,decision,target,evidence
+palereman,brand,navigational,P0,natural-coverage,home,confirmed-brand
+palereman cafe,brand,navigational,P0,natural-coverage,home,confirmed-brand
+palereman coffee and view,brand,navigational,P0,primary,metadata-and-home,confirmed-brand
+palereman ponorogo,brand,navigational,P0,natural-coverage,metadata-and-home,confirmed-location
+palereman cafe ponorogo,brand,navigational,P0,natural-coverage,metadata-and-home,confirmed-location
+palereman coffee and view ponorogo,brand,navigational,P0,natural-coverage,metadata-and-home,confirmed-location
+palereman singosaren,brand,navigational,P0,natural-coverage,home-and-visit,confirmed-location
+palereman jenangan,brand,navigational,P0,natural-coverage,about-and-visit,confirmed-address
+palereman setono,brand,navigational,P0,natural-coverage,about-and-visit,confirmed-address
+menu palereman,brand,menu,P0,natural-coverage,menu,existing-menu-link
+buku menu palereman,brand,menu,P0,natural-coverage,menu,existing-menu-link
+lokasi palereman,brand,directions,P0,natural-coverage,visit,confirmed-address
+jam buka palereman,brand,hours,P0,natural-coverage,visit-and-information,confirmed-hours
+nomor whatsapp palereman,brand,contact,P0,natural-coverage,visit,confirmed-contact
+palereman coffee & view,brand,navigational,P0,natural-coverage,home,existing-wordmark
+cafe ponorogo,category,local-discovery,P1,primary,title-and-home,confirmed-business-type-and-location
+cafe di ponorogo,category,local-discovery,P1,natural-coverage,about,confirmed-business-type-and-location
+kafe ponorogo,category,local-discovery,P1,semantic-variant,home,language-variant-not-separate-page
+coffee shop ponorogo,category,local-discovery,P1,natural-coverage,about,confirmed-coffee-menu
+coffee shop di ponorogo,category,local-discovery,P1,semantic-variant,about,confirmed-coffee-menu
+tempat ngopi ponorogo,category,local-discovery,P1,semantic-variant,about,confirmed-seating-and-coffee
+tempat ngopi di ponorogo,category,local-discovery,P1,natural-coverage,about,confirmed-seating-and-coffee
+cafe singosaren ponorogo,area,local-discovery,P0,natural-coverage,hero-and-visit,confirmed-address
+cafe di singosaren,area,local-discovery,P0,primary,description-and-hero,confirmed-address
+coffee shop singosaren,area,local-discovery,P1,semantic-variant,about,confirmed-address
+tempat ngopi singosaren,area,local-discovery,P1,semantic-variant,about,confirmed-address
+cafe jenangan ponorogo,area,local-discovery,P1,natural-coverage,about-and-visit,confirmed-address
+cafe di jenangan,area,local-discovery,P1,semantic-variant,about-and-visit,confirmed-address
+cafe setono ponorogo,area,local-discovery,P1,natural-coverage,about-and-visit,confirmed-address
+tempat ngopi jenangan,area,local-discovery,P1,semantic-variant,about-and-visit,confirmed-address
+cafe nuansa jawa ponorogo,character,local-discovery,P1,natural-coverage,about,existing-design-and-user-photos
+cafe bernuansa jawa di ponorogo,character,local-discovery,P1,primary,about-heading,existing-design-and-user-photos
+cafe tradisional jawa ponorogo,character,local-discovery,P1,semantic-variant,about-and-gallery,traditional-interior-in-user-photos
+cafe view sawah ponorogo,view,local-discovery,P1,natural-coverage,atmosphere-and-information,user-supplied-field-view-photos
+cafe pemandangan sawah ponorogo,view,local-discovery,P1,semantic-variant,atmosphere-and-information,user-supplied-field-view-photos
+tempat ngopi view sawah ponorogo,view,local-discovery,P1,semantic-variant,atmosphere-and-information,user-supplied-field-view-photos
+cafe dengan pemandangan perbukitan ponorogo,view,local-discovery,P2,natural-coverage,atmosphere-and-information,user-supplied-hill-view-photos
+menu cafe ponorogo,menu,menu,P2,semantic-variant,menu,own-menu-only-not-citywide-directory
+menu kopi palereman,menu,menu,P0,natural-coverage,menu,confirmed-menu
+kopi rempah ponorogo,menu,item-discovery,P2,natural-coverage,menu,existing-kopi-rempah-photo
+nasi bakar palereman,menu,item-discovery,P0,natural-coverage,menu,confirmed-menu-item
+nasi bakar ponorogo,menu,item-discovery,P2,semantic-variant,menu,confirmed-menu-item
+makanan dan kopi ponorogo,menu,menu,P2,semantic-variant,menu,confirmed-menu
+alamat cafe palereman,visit,directions,P0,natural-coverage,visit-and-information,confirmed-address
+petunjuk arah palereman,visit,directions,P0,natural-coverage,visit,confirmed-map-link
+cafe buka pagi ponorogo,visit,hours,P2,answer-with-hours,visit-and-information,opens-at-0800
+cafe ponorogo jam buka,visit,hours,P2,answer-with-hours,visit-and-information,confirmed-hours
+cafe dekat singosaren,visit,proximity,P2,location-context-only,visit,confirmed-location-not-user-distance
+cafe terdekat ponorogo,visit,proximity,P2,gbp-not-universal-nearest-claim,google-business-profile,depends-on-searcher-location
+cafe terdekat jenangan,visit,proximity,P2,gbp-not-universal-nearest-claim,google-business-profile,depends-on-searcher-location
+cafe dekat saya,visit,proximity,P2,gbp-not-universal-nearest-claim,google-business-profile,depends-on-searcher-location
+cafe murah ponorogo,unconfirmed,price,P3,do-not-claim,none,prices-not-confirmed
+cafe terbaik ponorogo,unconfirmed,comparison,P3,do-not-claim,none,no-independent-ranking-evidence
+cafe viral ponorogo,unconfirmed,trend,P3,do-not-claim,none,no-trend-evidence
+cafe 24 jam ponorogo,conflicting,hours,P3,exclude,none,conflicts-with-0800-to-2000-hours
+cafe live music ponorogo,unconfirmed,amenity,P3,needs-confirmation,none,no-confirmed-live-music
+cafe wifi ponorogo,unconfirmed,amenity,P3,needs-confirmation,none,no-confirmed-wifi
+cafe untuk nugas ponorogo,unconfirmed,amenity,P3,needs-confirmation,none,no-confirmed-work-facilities
+cafe coworking ponorogo,unconfirmed,amenity,P3,needs-confirmation,none,no-confirmed-coworking
+cafe rooftop ponorogo,unconfirmed,amenity,P3,needs-confirmation,none,view-photos-do-not-confirm-rooftop
+cafe ramah anak ponorogo,unconfirmed,amenity,P3,needs-confirmation,none,children-in-photo-do-not-prove-child-facilities
+cafe halal ponorogo,unconfirmed,certification,P3,needs-confirmation,none,no-confirmed-certification
+cafe parkir luas ponorogo,unconfirmed,amenity,P3,needs-confirmation,none,no-confirmed-parking-capacity
+cafe pet friendly ponorogo,unconfirmed,amenity,P3,needs-confirmation,none,no-confirmed-policy

@@ -1,0 +1,216 @@
+{
+  "checkedAt": "2026-10-17T11:08:01.443Z",
+  "environment": "local production build; external services blocked by proxy",
+  "technical": {
+    "metadata": {
+      "title": "Palereman Coffee and View | Cafe Ponorogo",
+      "description": "Cafe bernuansa Jawa di Singosaren, Jenangan, Ponorogo. Nikmati kopi, Nasi Bakar, dan pemandangan sawah. Buka 08.00–20.00, Jumat tutup. Lihat menu dan lokasi.",
+      "canonical": [
+        "https://paleremancafe.web.id/"
+      ],
+      "h1": [
+        "Palereman · Cafe di PonorogoSinggah sejenak.Nikmati rasanya."
+      ],
+      "og": [
+        [
+          "og:title",
+          "Palereman Coffee and View | Cafe Ponorogo"
+        ],
+        [
+          "og:description",
+          "Cafe bernuansa Jawa di Singosaren, Jenangan, Ponorogo. Nikmati kopi, Nasi Bakar, dan pemandangan sawah. Buka 08.00–20.00, Jumat tutup. Lihat menu dan lokasi."
+        ],
+        [
+          "og:url",
+          "https://paleremancafe.web.id"
+        ],
+        [
+          "og:site_name",
+          "Palereman Coffee and View"
+        ],
+        [
+          "og:locale",
+          "id_ID"
+        ],
+        [
+          "og:image",
+          "https://paleremancafe.web.id/images/suasana-palereman-view-sawah.jpg"
+        ],
+        [
+          "og:image:width",
+          "1280"
+        ],
+        [
+          "og:image:height",
+          "959"
+        ],
+        [
+          "og:image:alt",
+          "Pemandangan sawah dari area duduk Palereman di Ponorogo"
+        ],
+        [
+          "og:type",
+          "website"
+        ]
+      ],
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CafeOrCoffeeShop",
+              "@id": "https://paleremancafe.web.id/#cafe",
+              "name": "Palereman Coffee and View",
+              "url": "https://paleremancafe.web.id/",
+              "description": "Cafe bernuansa Jawa di Singosaren, Jenangan, Ponorogo. Nikmati kopi, Nasi Bakar, dan pemandangan sawah. Buka 08.00–20.00, Jumat tutup. Lihat menu dan lokasi.",
+              "telephone": "+6285726741940",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Singosaren, Setono, Kecamatan Jenangan",
+                "addressLocality": "Ponorogo",
+                "addressRegion": "Jawa Timur",
+                "postalCode": "63492",
+                "addressCountry": "ID"
+              },
+              "image": [
+                "https://paleremancafe.web.id/images/suasana-palereman-view-sawah.jpg",
+                "https://paleremancafe.web.id/images/suasana-palereman.jpg",
+                "https://paleremancafe.web.id/images/suasana-palereman-pemandangan.jpg"
+              ],
+              "logo": "https://paleremancafe.web.id/images/gunungan-palereman-transparent.png",
+              "hasMap": "https://share.google/8YMx2kgAo053VxVOL",
+              "hasMenu": "https://drive.google.com/file/d/1L7ihFNGiLOhXX5wK7XbqEQ8DGiBHlEjS/view",
+              "sameAs": [
+                "https://www.instagram.com/palereman.png/",
+                "https://www.tiktok.com/@palereman.png"
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "https://schema.org/Monday",
+                  "opens": "08:00",
+                  "closes": "20:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "https://schema.org/Tuesday",
+                  "opens": "08:00",
+                  "closes": "20:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "https://schema.org/Wednesday",
+                  "opens": "08:00",
+                  "closes": "20:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "https://schema.org/Thursday",
+                  "opens": "08:00",
+                  "closes": "20:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "https://schema.org/Friday",
+                  "opens": "00:00",
+                  "closes": "00:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "https://schema.org/Saturday",
+                  "opens": "08:00",
+                  "closes": "20:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "https://schema.org/Sunday",
+                  "opens": "08:00",
+                  "closes": "20:00"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://paleremancafe.web.id/#website",
+              "url": "https://paleremancafe.web.id/",
+              "name": "Palereman Coffee and View",
+              "inLanguage": "id-ID",
+              "publisher": {
+                "@id": "https://paleremancafe.web.id/#cafe"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/robots.txt": {
+      "status": 200,
+      "contentType": "text/plain",
+      "body": "User-Agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: https://paleremancafe.web.id/sitemap.xml\n"
+    },
+    "/sitemap.xml": {
+      "status": 200,
+      "contentType": "application/xml",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>https://paleremancafe.web.id/</loc>\n</url>\n</urlset>\n"
+    },
+    "menu": {
+      "status": 308,
+      "location": "/#menu"
+    },
+    "suasana": {
+      "status": 308,
+      "location": "/#suasana"
+    },
+    "kunjungi": {
+      "status": 308,
+      "location": "/#kunjungi"
+    },
+    "oldHost": {
+      "status": 308,
+      "location": "https://paleremancafe.web.id/menu?source=google"
+    },
+    "notFound": {
+      "status": 404,
+      "noindex": true,
+      "noHomeCanonical": true
+    }
+  },
+  "responsive": [
+    {
+      "viewport": 320,
+      "document": 320,
+      "body": 320,
+      "h1": 280,
+      "faqKeyboard": true,
+      "pageErrors": []
+    },
+    {
+      "viewport": 390,
+      "document": 390,
+      "body": 390,
+      "h1": 350,
+      "faqKeyboard": true,
+      "pageErrors": []
+    },
+    {
+      "viewport": 768,
+      "document": 768,
+      "body": 768,
+      "h1": 377.140625,
+      "faqKeyboard": true,
+      "pageErrors": []
+    },
+    {
+      "viewport": 1440,
+      "document": 1440,
+      "body": 1440,
+      "h1": 698.171875,
+      "faqKeyboard": true,
+      "pageErrors": []
+    }
+  ]
+}

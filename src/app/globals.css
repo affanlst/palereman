@@ -369,3 +369,19 @@ section[id] { scroll-margin-top: 100px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* The local business name remains part of the visible, descriptive H1. */
+.hero h1 .eyebrow { font-family: var(--font-body), sans-serif; font-size: 13px; font-weight: 400; letter-spacing: .02em; line-height: 1.5; white-space: normal; }
+.visit-faq { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-top: 70px; }
+.visit-faq h2 { font-size: clamp(36px, 4vw, 54px); }
+.visit-faq details { border-bottom: 1px solid #64776c; }
+.visit-faq summary { cursor: pointer; padding: 18px 0; font-size: 19px; }
+.visit-faq details p { color: #cbd5c7; padding: 0 0 20px; font-size: 17px; }
+.visit-faq a { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 1100px) { .visit-faq { gap: 50px; } }
+@media (max-width: 700px) {
+  .hero h1 .eyebrow { font-size: 12px; }
+  .visit-faq { grid-template-columns: 1fr; gap: 22px; margin-top: 48px; }
+  .visit-faq summary { font-size: 18px; }
+  .visit-faq details p { font-size: 16px; }
+}

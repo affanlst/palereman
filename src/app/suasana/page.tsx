@@ -1,2 +1,2 @@
-import { redirect } from "next/navigation";
-export default function SuasanaRedirect() { redirect("/#suasana"); }
+import { permanentRedirect } from "next/navigation";
+export default function SuasanaRedirect() { permanentRedirect("/#suasana"); }
