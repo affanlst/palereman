@@ -34,7 +34,7 @@ Both menu buttons open the same Google Drive URL from that configuration in a ne
 
 The Nasi Bakar and Kopi Rempah photographs and official gunungan were extracted from the supplied menu. The new wayang artwork is generated decorative illustration, not an official logo or historical character identification. The old mural remains an archived asset and is no longer rendered. Font license files are in `public/fonts`. See [asset notes](docs/design/README.md).
 
-Hero uses decorative wayang art. Suasana displays the interior photograph supplied by the user, with its original proportions and a link to more venue images on Instagram.
+Hero uses decorative wayang art. Suasana displays four original user-supplied venue photos in one fixed-ratio carousel: indoor seating and views of the surrounding fields. It supports native touch swipes, previous/next buttons, photo indicators, and keyboard navigation, with no autoplay. Additional photos load when selected; loading/error feedback keeps the controls available. A link to more venue images on Instagram remains below the copy.
 
 The social section now uses the user-provided Elfsight widget `f1b94c89-8127-4922-8666-ab81c060cd92`, loaded by `src/components/social-feed.tsx`. The Instagram and TikTok links both point to `palereman.png`. Feed sources must be configured in the widget's Elfsight dashboard; the embed code does not set usernames or provide API credentials. The loader uses the original lazy embed attribute, with loading/failure/slow states and profile links that remain accessible. No Elfsight account credentials are needed in this repository.
 

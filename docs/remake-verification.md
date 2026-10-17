@@ -1,5 +1,18 @@
 # Remake Palereman, 17 Oktober 2026
 
+## Galeri empat foto dalam satu frame
+
+Tiga foto tambahan pengguna kini melengkapi foto interior pertama. Galeri manual mempertahankan kolom Suasana dan tinggi frame, tanpa autoplay atau dependensi tambahan. SEO ditunda sesuai permintaan pengguna.
+
+- PASS: lint, TypeScript, build produksi, dan `git diff --check`.
+- PASS: pada 320, 390, 768, 1440 px, seluruh foto dapat dipilih dengan dua panah dan empat indikator. Tombol sebelumnya/berikutnya nonaktif pada batasnya; penanda foto aktif serta slide yang dibaca pembaca layar mengikuti pilihan.
+- PASS: native touch swipe di Chromium mobile, keyboard ArrowLeft/ArrowRight/Home/End, dan pilihan foto tetap terjaga saat viewport berubah dari desktop ke mobile. Target seluruh kontrol 44 × 44 px; tidak ada overflow dokumen atau JavaScript page error aplikasi.
+- PASS: tinggi frame tidak berubah antarfoto. Gambar memakai object-fit contain, tanpa filter atau pemotongan. Tiga file baru sama persis dengan unggahan pengguna.
+- PASS: hanya foto pertama dirender awal; foto lain dimuat setelah dipilih. Loading dan kegagalan gambar diperiksa dengan fixture; memilih foto lain memulihkan tampilan dan kontrol tetap tersedia. Smooth scroll normal serta reduced motion diperiksa terpisah.
+- PASS: indikator, garis tombol, fokus, caption, dan pesan memakai warna sistem desain yang sudah diuji. Counter di atas foto memakai bidang hijau solid dan teks krem; ikon panah menandai arah navigasi, bukan ornamen.
+
+[Hasil browser](gallery-browser-results.json) · [Galeri desktop](screenshots/palereman-gallery-desktop.png) · [Galeri mobile](screenshots/palereman-gallery-mobile.png).
+
 ## Foto suasana dari pengguna
 
 Bagian Suasana kini memakai foto interior `1000374464.jpg` yang diunggah pengguna, disimpan sebagai `public/images/suasana-palereman.jpg`. Pernyataan lama tentang ketiadaan foto venue merupakan riwayat sebelum unggahan ini.

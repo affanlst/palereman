@@ -1,8 +1,10 @@
 import type { ReactNode, SVGProps } from "react";
 
-type IconName = "arrow" | "photo" | "video" | "play" | "pin" | "clock" | "phone" | "instagram" | "message";
+type IconName = "arrow" | "photo" | "video" | "play" | "pin" | "clock" | "phone" | "instagram" | "message" | "chevron-left" | "chevron-right";
 
 const paths: Record<IconName, ReactNode> = {
+  "chevron-left": <path d="m15 5-7 7 7 7" />,
+  "chevron-right": <path d="m9 5 7 7-7 7" />,
   play: <path d="m9 5 11 7-11 7V5Z" fill="currentColor" stroke="none" />,
   arrow: <path d="M7 17 17 7M7 7h10v10" />,
   photo: <><rect x="3" y="3" width="18" height="18" rx="1" /><circle cx="8" cy="8" r="1.5" /><path d="m3 17 5-5 4 4 3-3 6 6" /></>,

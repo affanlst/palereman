@@ -3,6 +3,7 @@
 ## Remake modern Jawa, 17 Oktober 2026
 
 - `public/images/suasana-palereman.jpg`: foto interior asli 1280 × 959 yang diunggah pengguna (`1000374464.jpg`), dipakai pada bagian suasana menggantikan ornamen. File disalin tanpa perubahan gambar; rasio aslinya dipertahankan.
+- Tiga foto tambahan pengguna melengkapi carousel empat foto: `suasana-palereman-ruang-kayu.jpg` dari `1000374467.jpg`, `suasana-palereman-view-sawah.jpg` dari `1000374466.jpg`, dan `suasana-palereman-pemandangan.jpg` dari `1000374465.jpg`. Seluruhnya 1280 × 959 dan disalin tanpa mengedit isi gambar. Foto pemandangan tidak menggantikan foto pertama; semuanya tersedia dalam satu galeri.
 
 - `public/images/gunungan-palereman-transparent.png`: versi transparan yang direstorasi dari gunungan asli dengan alat edit gambar atas permintaan pengguna. Dipakai untuk logo navbar dan footer tanpa bidang krem atau blend multiply. Aset asli tetap disimpan untuk bagian suasana dan sumber ikon tab.
 

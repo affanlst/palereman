@@ -1,0 +1,158 @@
+{
+  "layouts": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "frameHeight": 209.78125,
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "frameHeight": 262.21875,
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "frameHeight": 258.46875,
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "frameHeight": 442.03125,
+      "targets": [
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        },
+        {
+          "width": 44,
+          "height": 44
+        }
+      ]
+    }
+  ],
+  "controls": [
+    "All four dot controls, both arrows, disabled boundaries, active indicator and accessible slide states at all four viewports",
+    "ArrowRight, ArrowLeft, Home, End; only first image rendered initially; images loaded after selection; frame height stable",
+    "Selected photo preserved when viewport resizes from desktop to mobile",
+    "Slow/failing image fixture: loading and error messages appear; choosing another photo recovers without losing gallery controls"
+  ],
+  "touch": [
+    {
+      "state": "Foto 2 / 4",
+      "result": "Native horizontal touch swipe changes the selected photo"
+    }
+  ],
+  "images": [
+    {
+      "source": "1-1000374467.jpg",
+      "dest": "suasana-palereman-ruang-kayu.jpg",
+      "unchanged": true
+    },
+    {
+      "source": "2-1000374466.jpg",
+      "dest": "suasana-palereman-view-sawah.jpg",
+      "unchanged": true
+    },
+    {
+      "source": "3-1000374465.jpg",
+      "dest": "suasana-palereman-pemandangan.jpg",
+      "unchanged": true
+    }
+  ],
+  "pageErrors": []
+}

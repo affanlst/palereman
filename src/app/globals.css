@@ -105,6 +105,22 @@ section[id] { scroll-margin-top: 100px; }
 .atmosphere-photo { min-width: 0; }
 .atmosphere-photo img { width: 100%; height: auto; }
 .atmosphere-photo figcaption { margin-top: 13px; color: var(--muted); font-size: 13px; }
+.gallery-frame { position: relative; background: var(--card); }
+.gallery-rail { display: flex; width: 100%; aspect-ratio: 1280 / 959; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.gallery-rail::-webkit-scrollbar { display: none; }
+.gallery-slide { flex: 0 0 100%; min-width: 0; height: 100%; scroll-snap-align: start; }
+.gallery-slide img { width: 100%; height: 100%; object-fit: contain; }
+.gallery-message { position: absolute; inset: 0; display: grid; place-content: center; padding: 24px; background: var(--card); color: var(--ink); font-size: 15px; text-align: center; pointer-events: none; }
+.gallery-counter { position: absolute; right: 12px; bottom: 12px; pointer-events: none; padding: 4px 10px; background: var(--forest); color: var(--paper); font-size: 12px; }
+.gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 4px; margin-top: 12px; }
+.gallery-arrow { display: grid; place-items: center; width: 44px; height: 44px; flex: none; padding: 0; border: 1px solid var(--muted); color: var(--ink); background: transparent; }
+.gallery-arrow svg { width: 20px; height: 20px; }
+.gallery-arrow:hover:not(:disabled) { background: var(--forest); color: var(--paper); }
+.gallery-arrow:disabled { opacity: .4; cursor: default; }
+.gallery-dots { display: flex; }
+.gallery-dot { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; }
+.gallery-dot::before { content: ''; width: 10px; height: 10px; border: 1px solid var(--muted); border-radius: 50%; }
+.gallery-dot[aria-current="true"]::before, .gallery-dot:hover::before { background: var(--ink); border-color: var(--ink); }
 .section-copy .section-kicker { margin-bottom: 25px; }
 .section-copy > p:not(.section-kicker) { font-size: 18px; color: var(--muted); margin-top: 25px; max-width: 430px; }
 .section-copy .text-link { margin-top: 22px; }
