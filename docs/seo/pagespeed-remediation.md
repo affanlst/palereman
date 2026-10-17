@@ -2,6 +2,8 @@
 
 Tanggal: 17 Oktober 2026. Dasar: delapan screenshot PageSpeed Insights mobile dari pemilik dan audit lokal sebelumnya pada commit `20855d9`.
 
+**Pembaruan setelah umpan balik pemilik:** pemuatan Maps melalui tombol dibatalkan. Peta kembali berupa iframe server-rendered dengan native lazy loading, otomatis tampil ketika mendekati layar, dengan tinggi 270 px desktop/230 px mobile dan tautan fallback. Bagian laporan di bawah merekam eksperimen sebelumnya; hasil performa dan pengujian opt-in Maps tersebut tidak mewakili perilaku Maps terbaru.
+
 ## Perubahan
 
 - **Google Maps sesuai permintaan pengunjung.** Iframe tidak dibuat ketika halaman dibuka atau saat bagian lokasi dilewati. Tombol “Tampilkan peta” memuatnya; alamat dan tautan navigasi Google Maps tersedia sejak HTML awal. Tinggi area peta tetap saat dibuka; fokus keyboard berpindah ke iframe yang memiliki judul.
