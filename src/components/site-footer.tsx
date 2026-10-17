@@ -21,6 +21,7 @@ export function SiteFooter() {
           <a href={profile.whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Palereman (tab baru)"><Icon name="message" /></a>
         </div>
       </div>
+      <p className="shell footer-copyright">© <a href="https://heyaffan.tech" target="_blank" rel="noopener noreferrer" aria-label="heyaffan.tech (tab baru)">heyaffan.tech</a> <span aria-hidden="true">|</span> <span>Affan Naufal Syarif Al Ghifari</span></p>
     </footer>
   );
 }
