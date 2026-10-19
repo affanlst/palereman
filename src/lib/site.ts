@@ -52,6 +52,7 @@ export const businessStructuredData = {
       url: `${site.url}/`,
       name: site.name,
       inLanguage: "id-ID",
+      alternateName: ["Palereman", "Palereman Coffee & View"],
       publisher: { "@id": `${site.url}/#cafe` },
     },
   ],
