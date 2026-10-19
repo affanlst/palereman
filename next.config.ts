@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     return [{
       source: "/:path*",
       has: [{ type: "host", value: "palereman\\.vercel\\.app" }],
-      destination: "https://paleremancafe.web.id/:path*",
+      destination: "https://www.paleremancafe.web.id/:path*",
       permanent: true,
     }];
   },

@@ -1,7 +1,7 @@
 import { profile } from "@/lib/profile";
 
 export const site = {
-  url: "https://paleremancafe.web.id",
+  url: "https://www.paleremancafe.web.id",
   name: "Palereman Coffee and View",
   title: "Palereman Coffee and View | Cafe Ponorogo",
   description:
