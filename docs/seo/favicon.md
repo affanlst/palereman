@@ -42,3 +42,9 @@ Urutan diagnosis publik:
 4. Jika ikon dan metadata dapat diambil dengan benar serta telah dicrawl, pemilihan favicon/site name dan waktu pembaruannya tetap dikelola Google. Tidak menjanjikan pergantian langsung, tanggal tertentu, atau membuat URL ikon baru setiap hari.
 
 Referensi tambahan: https://developers.google.com/search/docs/appearance/site-names . Halaman referensi tidak berhasil dibaca live lewat proxy sesi ini. Bukti JSON lokal sesi disimpan di `/tmp/palereman-search-identity/local-validation.json`.
+
+## Konfigurasi Next.js 16.4.1 — 20 Oktober 2026
+
+Sesuai permintaan pemilik, kedua API ikon Next.js dipakai bersama: `src/app/favicon.ico` memakai konvensi file agar Next.js otomatis menerbitkan `/favicon.ico` dan tag ikonnya; `metadata.icons` di `src/app/layout.tsx` tetap mendeklarasikan `/favicon-192.png`. Deklarasi manual ICO dan shortcut yang menunjuk file sama dihapus agar tidak menggandakan tag.
+
+Build produksi lokal menghasilkan tepat satu tag ikon ICO dan satu tag ikon PNG. Kedua URL merespons 200 dengan MIME yang sesuai; `/icon` lama juga tetap merespons 200. Perubahan ini mengikuti konfigurasi resmi Next.js dan tidak menjamin waktu pembaruan favicon pada hasil Google.
