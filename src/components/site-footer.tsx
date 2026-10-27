@@ -15,6 +15,7 @@ export function SiteFooter() {
           <Link href="/#suasana">Suasana</Link>
           <Link href="/#video">Sosial</Link>
           <Link href="/#kunjungi">Kunjungi</Link>
+          <Link href="/artikel">Artikel</Link>
         </nav>
         <div className="footer-contact">
           <a href={profile.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram Palereman (tab baru)"><Icon name="instagram" /></a>

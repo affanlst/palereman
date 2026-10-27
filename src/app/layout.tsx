@@ -23,7 +23,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   icons: {
-    icon: [{ url: "/favicon-192.png", sizes: "192x192", type: "image/png" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: [{ url: "/favicon-192.png", sizes: "192x192", type: "image/png" }],
   },
   title: { default: site.title, template: "%s | Palereman" },
   description: site.description,

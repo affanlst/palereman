@@ -31,6 +31,7 @@ Production uses port 3000 unless `PORT` or `--port` is supplied. Run behind an H
 Business information is configured in `src/lib/profile.ts`. The address and Maps link came from the user's screenshot and link. The user confirmed the phone/WhatsApp number and hours: 08.00–20.00, Friday closed.
 
 Both menu buttons open the same Google Drive URL from that configuration in a new tab. `/menu`, `/suasana` and `/kunjungi` redirect to their corresponding homepage anchors. There is no local menu PDF or full menu catalogue.
+`/artikel` adalah indeks statis lima artikel promosi. Setiap artikel memiliki halaman baca sendiri di `/artikel/[slug]`; data dan isi tersimpan di `src/lib/articles.ts`, dibuat saat build tanpa CMS atau penambahan artikel dinamis.
 
 The Nasi Bakar and Kopi Rempah photographs and official gunungan were extracted from the supplied menu. The new wayang artwork is generated decorative illustration, not an official logo or historical character identification. The old mural remains an archived asset and is no longer rendered. Font license files are in `public/fonts`. See [asset notes](docs/design/README.md).
 

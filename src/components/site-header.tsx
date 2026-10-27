@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
 import { profile } from "@/lib/profile";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
@@ -17,6 +18,7 @@ export function SiteHeader() {
   const mobileNav = useRef<HTMLDetailsElement>(null);
   const summary = useRef<HTMLElement>(null);
   const [active, setActive] = useState("");
+  const pathname = usePathname();
 
   useEffect(() => {
     let frame = 0;
@@ -41,8 +43,9 @@ export function SiteHeader() {
     };
   }, []);
 
-  function closeMenu(id: string) {
+  function closeMenu(id?: string) {
     if (mobileNav.current) mobileNav.current.open = false;
+    if (!id) return;
     const section = document.getElementById(id);
     if (section) {
       section.tabIndex = -1;
@@ -57,6 +60,7 @@ export function SiteHeader() {
         <Link href="/#beranda" className="wordmark" aria-label="Palereman. Coffee & View, beranda"><BrandMark priority /><span className="wordmark-copy"><span>Palereman<span className="wordmark-dot">.</span></span><small>Coffee &amp; View</small></span></Link>
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {links.map(({ id, label }) => <Link key={id} href={`/#${id}`} aria-current={active === id ? "location" : undefined}>{label}</Link>)}
+          <Link href="/artikel" aria-current={pathname === "/artikel" ? "page" : undefined}>Artikel</Link>
         </nav>
         <a className="header-contact" href={profile.whatsappUrl} target="_blank" rel="noopener noreferrer">Monggo, mampir<span className="sr-only"> (WhatsApp, tab baru)</span></a>
         <details className="mobile-nav" ref={mobileNav} onKeyDown={(event) => {
@@ -68,6 +72,7 @@ export function SiteHeader() {
           <summary ref={summary}>Menu <span className="menu-toggle" aria-hidden="true"><i /><i /></span></summary>
           <nav aria-label="Navigasi seluler">
             {links.map(({ id, label }) => <Link key={id} href={`/#${id}`} aria-current={active === id ? "location" : undefined} onClick={() => closeMenu(id)}>{label}</Link>)}
+            <Link href="/artikel" aria-current={pathname === "/artikel" ? "page" : undefined} onClick={() => closeMenu()}>Artikel</Link>
           </nav>
         </details>
       </div>
